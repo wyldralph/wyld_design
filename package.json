@@ -1,0 +1,29 @@
+{
+  "name": "wyld_design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "hugo server -D --bind 0.0.0.0",
+    "build": "hugo --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyldralph/wyld_design.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/wyldralph/wyld_design/issues"
+  },
+  "homepage": "https://github.com/wyldralph/wyld_design#readme",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
+    "@tailwindcss/typography": "^0.5.16",
+    "autoprefixer": "^10.4.21",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.12"
+  }
+}

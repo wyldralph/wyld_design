@@ -1,0 +1,8 @@
+{
+  "emmet.includeLanguages": {
+    "html": "html"
+  },
+  "tailwindCSS.includeLanguages": {
+    "html": "html"
+  }
+}

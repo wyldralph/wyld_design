@@ -1,0 +1,12 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Wyld Design
+theme: "studio_theme"
+
+build:
+  writeStats: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
