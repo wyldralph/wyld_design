@@ -1,1 +1,11 @@
-<p>Copyright {{ now.Year }}. All rights reserved.</p>
+<div class="col-start-2 col-span-2">
+  <h5 class="font-serif text-xs mb-2">Navigation</h5>
+  {{ partial "menu.html" (dict "menuID" "footer" "page" . "ulClass" "text-sm space-y-2" ) }}
+</div>
+<div class="col-start-4 col-span-2">
+  <h5 class="font-serif text-xs mb-2">Information</h5>
+  {{ partial "menu.html" (dict "menuID" "information" "page" . "ulClass" "text-sm space-y-2" ) }}
+</div>
+<div class="col-start-6 col-span-6 flex justify-end">
+  <p class="text-right content-end">Copyright {{ now.Year }}. All rights reserved.</p>
+</div>

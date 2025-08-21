@@ -1,21 +1,21 @@
 {{- /*
 Renders a menu for the given menu ID.
-
 @context {page} page The current page.
 @context {string} menuID The menu ID.
-
+@context {string} navClass Optional CSS classes for the nav element.
+@context {string} ulClass Optional CSS classes for the ul element.
 @example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
 */}}
-
 {{- $page := .page }}
 {{- $menuID := .menuID }}
-
+{{- $navClass := .navClass | default "" }}
+{{- $ulClass := .ulClass | default "" }}
 {{- with index site.Menus $menuID }}
-  <nav>
-    <ul>
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    </ul>
-  </nav>
+<nav {{ with $navClass }} class="{{ . }}"{{ end }}>
+<ul {{ with $ulClass }} class="{{ . }}"{{ end }}>
+{{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+</ul>
+</nav>
 {{- end }}
 
 {{- define "_partials/inline/menu/walk.html" }}
