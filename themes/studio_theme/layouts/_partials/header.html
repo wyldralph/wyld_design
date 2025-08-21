@@ -1,46 +1,37 @@
-<div class="flex flex-row justify-start items-baseline md:justify-start">
+<div class="flex flex-row items-baseline justify-start md:justify-start">
   <!-- Mobile menu button - positioned first for flex order -->
-  <button id="mobile-menu-button" class="md:hidden p-2 focus:outline-none order-1">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <button id="mobile-menu-button" class="order-1 p-2 focus:outline-none md:hidden">
+    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
   </button>
 
   <!-- Logo - centered on mobile -->
-  <a href="/" class="mx-auto md:mx-0 md:ml-1 order-2 md:order-1">
-    <img class="w-24 sm:w-42 mt-2 translate-y-2" src="/images/logo_green.png" />
+  <a href="/" class="order-2 mx-auto md:order-1 md:mx-0 md:ml-1">
+    <img class="sm:w-42 mt-2 w-24 translate-y-2" src="/images/logo_green.png" />
   </a>
 
   <!-- Desktop menu -->
-  <div class="hidden md:flex order-3">
-    {{ partial "menu.html" (dict "menuID" "main" "page" . "ulClass" "flex font-serif text-lg space-x-8 ml-8") }}
-  </div>
+  <div class="order-3 hidden md:flex">{{ partial "menu.html" (dict "menuID" "main" "page" . "ulClass" "flex font-serif text-lg space-x-8 ml-8 text-green-900") }}</div>
 
   <!-- Spacer for mobile to balance the hamburger button -->
-  <div class="md:hidden p-2 w-6 h-6 order-3"></div>
+  <div class="order-3 h-6 w-6 p-2 md:hidden"></div>
 
-  <a
-    href="/contact"
-    class="hidden md:block text-lg border-1 border-green-900 rounded-lg font-serif px-2 py-1 mr-1 mt-2 ml-auto self-auto xl:self-start order-4"
-  >
-    Available for Autumn projects
-  </a>
+  <a href="/contact" class="border-1 order-4 ml-auto mr-1 mt-2 hidden self-auto rounded-lg border-green-900 px-2 py-1 font-serif text-lg text-green-900 md:block xl:self-start">Available for Autumn projects</a>
 </div>
 
 <!-- Mobile menu -->
-<div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-studiopink-100 z-50">
+<div id="mobile-menu" class="bg-studiopink-100 fixed inset-0 z-50 hidden md:hidden">
   <!-- Close button -->
-  <button id="mobile-menu-close" class="absolute top-4 right-4 p-2 focus:outline-none">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <button id="mobile-menu-close" class="absolute right-4 top-4 p-2 focus:outline-none">
+    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
     </svg>
   </button>
 
-  <div class="flex flex-col justify-center items-center h-full">
+  <div class="flex h-full flex-col items-center justify-center">
     {{ partial "menu.html" (dict "menuID" "main" "page" . "ulClass" "flex flex-col font-serif text-2xl space-y-8 text-center") }}
-    <a href="/contact" class="text-xl border-2 border-green-900 rounded-lg font-serif px-4 py-2 text-center mt-8">
-      Available for Autumn projects
-    </a>
+    <a href="/contact" class="mt-8 rounded-lg border-2 border-green-900 px-4 py-2 text-center font-serif text-xl">Available for Autumn projects</a>
   </div>
 </div>
 

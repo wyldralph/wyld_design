@@ -1,0 +1,68 @@
+{{ define "main" }}
+<section class="mb-12">
+  <div class="grid gap-8 py-12 sm:grid-cols-12">
+    <div class="col-span-6">
+      <img src="/images/ralph.jpeg" class="max-h-[700px] w-full rounded-lg object-cover" loading="lazy" />
+    </div>
+    <div class="col-span-6 flex flex-col justify-end space-y-6">
+      <h1 class="font-serif text-2xl font-bold text-green-900 sm:text-4xl md:text-6xl">{{ .Title }}</h1>
+      <p class="mt-4 font-serif text-xl text-gray-800 sm:text-2xl">{{ .Params.tagline }}</p>
+    </div>
+  </div>
+</section>
+<section class="mb-12 sm:grid sm:grid-cols-12">
+  <div class="prose prose-lg grid max-w-none space-y-6 sm:col-span-8 sm:col-start-3 lg:col-span-6 lg:col-start-4">{{ .Content }}</div>
+</section>
+
+<section class="mb-12">
+  <div class="sm:grid sm:grid-cols-12 sm:gap-8">
+    <div class="col-span-3 space-y-6">
+      <h2 class="font-serif text-4xl text-green-900">My Values</h2>
+      <p class="font-serif text-xl">And what they mean for you</p>
+    </div>
+    <div class="col-span-9 space-x-4 flex flex-wrap justify-start md:justify-center">
+        <div class=""><div class="relative font-serif text-green-900/10 translate-y-16 text-8xl">1</div><p class="text-xl font-serif">Environmental stewardship</p><p>Something about environmental stewardship</p></div>
+        <div class=""><div class="relative translate-y-16 font-serif text-green-900/10  text-8xl">2</div><p class="text-xl font-serif">Design authenticity</p><p>Something about design authenticity</p></div>
+        <div class=""><div class="relative translate-y-16 font-serif text-green-900/10  text-8xl">3</div><p class="text-xl font-serif">Horticultural excellence</p><p>Something about horticultural excellence</p></div>
+        <div class=""><div class="relative translate-y-16 font-serif text-green-900/10  text-8xl">4</div><p class="text-xl font-serif">Client partnership</p><p>Something about client partnership</p></div>
+        <div class=""><div class="relative translate-y-16 font-serif text-green-900/10  text-8xl">5</div><p class="text-xl font-serif">Community enhancement</p><p>Something about community enhancement</p></div>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="py-12 mb-12 sm:grid sm:grid-cols-12 gap-8">
+  <h2 class="text-green-900 sm:col-span-3 lg:col-span-5 text-4xl font-serif">Why I focus on gardens for contemporary homes</h2>
+  <div class="sm:col-start-5 sm:col-span-8 lg:col-start-6 lg:col-span-6 space-y-12 mb-6">
+    <p class="text-2xl font-serif text-green-900">The reality of new-build gardens rarely matches the quality of the homes they serve.</p>
+    <p class="text-lg">Since moving to Bedfordshire in 2021, I've witnessed the boom in contemporary housing developments across the region. While these homes feature high-quality interiors and clean architectural lines, their gardens tell a different story: small, overlooked spaces with compacted soil, tiny unusable patios, and a basic covering of turf that quickly becomes a mud bath.</p>
+    <p class="text-2xl font-serif text-green-900">These gardens face specific challenges that require a tailored approach:</p>
+</div>
+    <div class="col-span-3 border border-gray-900/10 shadow-lg shadow-gray-900/10 hover:shadow-xl hover:shadow-gray-900/15 transition-all duration-300 hover:-translate-y-1 rounded-lg">
+      <p class="m-4">
+        Poor foundations literally and figuratively: The soil is compacted from construction traffic, poorly drained, and stripped of nutrients. Plants chosen without understanding these conditions inevitably fail, wasting both money and time.
+      </p>
+    </div>
+     <div class="col-span-3 border border-gray-900/10 shadow-lg shadow-gray-900/10 hover:shadow-xl hover:shadow-gray-900/15 transition-all duration-300 hover:-translate-y-1 rounded-lg gap-4">
+      <p class="m-4">
+        Privacy and proportion problems: With neighbours in close proximity and large windows overlooking the garden, these spaces need clever design to create privacy while making the most of often awkward, small plots that feel out of proportion with the house.
+      </p>
+    </div>
+    <div class="col-span-3 border border-gray-900/10 shadow-lg shadow-gray-900/10 hover:shadow-xl hover:shadow-gray-900/15 transition-all duration-300 hover:-translate-y-1 rounded-lg gap-4">
+      <p class="m-4">
+        Style mismatch: Contemporary homes need gardens with strong geometry, carefully chosen materials, and naturalistic planting that softens clean lines while providing year-round interest.
+      </p>
+    </div>
+     <div class="col-span-3 border border-gray-900/10 shadow-lg shadow-gray-900/10 hover:shadow-xl hover:shadow-gray-900/15 transition-all duration-300 hover:-translate-y-1 rounded-lg gap-4">
+      <p class="m-4">
+        The environmental opportunity: While development often means loss of natural habitat, new-build gardens represent enormous potential to restore biodiversity through thoughtful plant selection and wildlife-friendly design.
+      </p>
+    </div>
+    </div>
+    <div class="sm:col-start-5 sm:col-span-8 lg:col-start-6 lg:col-span-6 space-y-5">
+    <p class="text-2xl font-serif text-green-900">The reality of new-build gardens rarely matches the quality of the homes they serve.</p>
+    <p class="text-lg">Since moving to Bedfordshire in 2021, I've witnessed the boom in contemporary housing developments across the region. While these homes feature high-quality interiors and clean architectural lines, their gardens tell a different story: small, overlooked spaces with compacted soil, tiny unusable patios, and a basic covering of turf that quickly becomes a mud bath.</p>
+</div>
+</section>
+
+{{ end }}

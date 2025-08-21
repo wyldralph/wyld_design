@@ -7,7 +7,7 @@
     {{ $css := resources.Get "css/main.css" | css.PostCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $css.Permalink }}" />
   </head>
-  <body class="bg-studiopink-100 min-h-screen text-green-900 sm:grid sm:grid-cols-12 gap-8 px-2 sm:px-6 md:px-12">
+  <body class="bg-studiopink-100 min-h-screen text-slate-800 sm:grid sm:grid-cols-12 gap-8 px-2 sm:px-6 md:px-12">
     <header class="col-span-full">{{ partial "header" . }}</header>
     <main class="col-span-full min-h-screen">{{ block "main" . }}{{ end }}</main>
     <footer class="col-span-full grid grid-cols-subgrid mb-8">{{ partial "footer" . }}</footer>
