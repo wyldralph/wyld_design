@@ -1,35 +1,35 @@
 ---
-title: "Another Garden"
+title: "Naturalistic Planting Design"
 date: 2025-08-21T21:14:29+01:00
 draft: false
-client: ""
-location: ""
-year: ""
-project_type: "" # e.g., "Garden Design", "Planting Design", "Design Consultation"
-size: "" # e.g., "Small suburban garden", "Large family garden"
-style: "" # e.g., "Contemporary", "Modern naturalistic", "Wildlife-friendly"
-featured_image: "" # Path to main project image
-gallery_images: [] # Array of gallery image paths
-summary: "" # Brief description for listings
-services_provided: [] # Array of services, e.g., ["Design", "Planting", "Project Management"]
-challenges: [] # Key challenges addressed
-solutions: [] # Key solutions implemented
-plants_featured: [] # Notable plants used
-materials: [] # Key materials used
-tags: [] # For categorization
-weight: 0 # For ordering (lower numbers appear first)
+client: "Private Client"
+location: "Buckinghamshire"
+year: "2024"
+project_type: "Planting Design"
+size: "Large suburban garden"
+style: "Modern naturalistic"
+featured_image: "/images/verbena.jpeg"
+gallery_images: ["/images/verbena.jpeg"]
+summary: "A naturalistic planting scheme that brings year-round color and wildlife to an established garden."
+services_provided: ["Planting Design", "Plant Selection"]
+challenges: ["Tired existing planting", "Need for four-season interest"]
+solutions: ["Prairie-style perennial scheme", "Structured seasonal displays"]
+plants_featured: ["Echinacea", "Rudbeckia", "Miscanthus"]
+materials: ["Organic mulch", "Natural stone edging"]
+tags: ["planting", "naturalistic", "wildlife"]
+weight: 20
 ---
 
-<!-- Project description goes here -->
+A comprehensive planting design that transformed tired borders into a naturalistic paradise filled with seasonal interest and wildlife appeal.
 
 ## The Challenge
 
-<!-- Describe the challenges this garden presented -->
+The client's established Buckinghamshire garden had good bones but lackluster planting that provided little seasonal interest and minimal wildlife value.
 
 ## The Solution
 
-<!-- Describe how you solved the challenges -->
+I designed a prairie-inspired planting scheme using hardy perennials and grasses that provide structure and color from spring through winter.
 
 ## The Result
 
-<!-- Describe the final outcome and client satisfaction -->
+The garden now buzzes with activity throughout the seasons, providing endless interest and a true wildlife haven.

@@ -1,35 +1,35 @@
 ---
-title: "That Garden"
+title: "Garden Consultation & Strategy"
 date: 2025-08-21T21:14:52+01:00
 draft: false
-client: ""
-location: ""
-year: ""
-project_type: "" # e.g., "Garden Design", "Planting Design", "Design Consultation"
-size: "" # e.g., "Small suburban garden", "Large family garden"
-style: "" # e.g., "Contemporary", "Modern naturalistic", "Wildlife-friendly"
-featured_image: "" # Path to main project image
-gallery_images: [] # Array of gallery image paths
-summary: "" # Brief description for listings
-services_provided: [] # Array of services, e.g., ["Design", "Planting", "Project Management"]
-challenges: [] # Key challenges addressed
-solutions: [] # Key solutions implemented
-plants_featured: [] # Notable plants used
-materials: [] # Key materials used
-tags: [] # For categorization
-weight: 0 # For ordering (lower numbers appear first)
+client: "Private Client"
+location: "Hertfordshire"
+year: "2024"
+project_type: "Design Consultation"
+size: "Medium family garden"
+style: "Contemporary family-friendly"
+featured_image: "/images/verbena.jpeg"
+gallery_images: ["/images/verbena.jpeg"]
+summary: "Strategic design consultation providing clear direction for a phased garden transformation."
+services_provided: ["Design Consultation", "Master Planning", "Phasing Strategy"]
+challenges: ["Limited budget", "Unclear design direction", "Phased implementation needed"]
+solutions: ["Comprehensive master plan", "Phased implementation strategy", "Priority recommendations"]
+plants_featured: ["Recommended plant palette for future phases"]
+materials: ["Material specifications and sourcing guide"]
+tags: ["consultation", "planning", "strategy"]
+weight: 30
 ---
 
-<!-- Project description goes here -->
+A strategic design consultation that provided clear direction and actionable steps for transforming a family garden over multiple phases.
 
 ## The Challenge
 
-<!-- Describe the challenges this garden presented -->
+The clients had big dreams for their Hertfordshire garden but felt overwhelmed by the possibilities and concerned about budget.
 
 ## The Solution
 
-<!-- Describe how you solved the challenges -->
+I provided a comprehensive consultation including a master plan, detailed recommendations, and a phased implementation strategy.
 
 ## The Result
 
-<!-- Describe the final outcome and client satisfaction -->
+The clients now have a clear roadmap for their garden transformation, with confidence in their next steps and budget planning.

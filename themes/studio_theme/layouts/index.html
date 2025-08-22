@@ -1,233 +1,241 @@
 {{ define "main" }}
 <section class="mb-12 sm:mb-24">
-<div class="py-12 sm:py-24 grid grid-cols-1 sm:grid-cols-12 gap-6 sm:gap-12">
-  <div class="sm:col-span-7 flex flex-col justify-center order-2 sm:order-1">
-    <h1 class="text-green-900 text-3xl sm:text-3xl md:text-5xl font-bold font-serif leading-tight">Contemporary Garden Design for Modern Homes</h1>
-    <p class="mt-4 sm:mt-8 text-gray-800 text-lg sm:text-xl font-serif leading-relaxed">
-      Creating naturalistic gardens that support local wildlife through sustainable design and expert craftsmanship, across
-      Bedfordshire, Buckinghamshire, and beyond.
+  <div class="grid grid-cols-1 gap-6 py-12 sm:grid-cols-12 sm:gap-12 sm:py-24">
+    <div class="order-1 flex flex-col justify-center sm:order-1 sm:col-span-7">
+      <h1 class="font-serif text-3xl font-bold leading-tight text-green-900 sm:text-3xl md:text-4xl">Contemporary Garden Design That Transforms New-Build Homes</h1>
+      <p class="mt-4 font-sans text-lg font-semibold leading-relaxed text-gray-800 sm:mt-8 sm:text-xl">Creating naturalistic gardens that support local wildlife through sustainable design and expert craftsmanship.</p>
+
+      <!-- Include a CTA button here? Link to portfolio -->
+    </div>
+    <div class="order-2 sm:order-2 sm:col-span-5">
+      <img src="images/verbena.jpeg" class="max-h-[300px] w-full rounded-lg object-cover sm:max-h-[400px]" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="mb-24">
+  <h2 class="mb-24 font-serif text-4xl font-medium text-green-900 sm:text-5xl">New-build gardens are overlooked, in more ways than one...</h2>
+  <div class="container mx-auto max-w-[900px] space-y-12 md:flex md:flex-col">
+    <p class="text-base">
+      With all focus on interior finishes, most new-build gardens remain
+      <b>underdeveloped spaces</b>
+      - offering little more than
+      <b>basic lawns</b>
+      and
+      <b>minimal hard landscaping</b>
+      .
     </p>
+    <p class="font-serif text-3xl font-medium text-green-900">Your outdoor space should offer:</p>
+    <div class="flex flex-col space-y-6 md:flex-row md:space-x-12">
+      <div class="text-lg">
+        <b>Complete privacy</b>
+        for peaceful morning rituals
+      </div>
+      <div class="text-lg">
+        <b>Sophisticated entertaining areas</b>
+        for memorable gatherings
+      </div>
+      <div class="text-lg">
+        <b>Year-round visual interest</b>
+        through expertly curated planting
+      </div>
+    </div>
+    <p class="text-base italic">Instead, you're left with a garden that feels exposed and uninspiring - hardly the outdoor sanctuary that should complement your beautiful new home.</p>
+    <p class="font-serif text-2xl font-medium text-green-900 sm:text-3xl">I work with discerning homeowners to transform these underdeveloped spaces into exceptional contemporary gardens that reflect both their lifestyle and my creative vision.</p>
+    <p class="text-base">Each garden I design is a unique creative response to your home, your lifestyle, and the natural environment.</p>
+    <p class="text-base">I create gardens that are:</p>
+    <div class="flex flex-col space-y-6 md:flex-row md:space-x-12">
+      <div class="text-lg"><b>Abundant with wildlife</b></div>
+      <div class="text-lg">
+        <b>Architectural in presence</b>
+        to complement your home
+      </div>
+      <div class="text-lg">
+        <b>Layered with seasonal planting</b>
+        that softens contemporary lines
+      </div>
+    </div>
   </div>
-  <div class="sm:col-span-5 order-1 sm:order-2">
-    <img src="images/verbena.jpeg" class="w-full max-h-[300px] sm:max-h-[400px] object-cover rounded-lg" loading="lazy"/>
+</section>
+
+<section class="mb-12 border-y border-green-900/20 py-12">
+  <div class="grid gap-8 py-12 sm:grid-cols-12">
+    <div class="col-span-6">
+      <img src="/images/checklist.jpeg" class="max-h-[700px] w-full rounded-lg object-cover" loading="lazy" />
+    </div>
+    <div class="col-span-6 flex flex-col justify-end">
+      <h2 class="font-serif text-2xl text-green-900 sm:text-3xl md:text-4xl">Get your free new-build garden checklist.</h2>
+      <p class="text-l mt-4 font-serif text-gray-800 sm:text-xl">Transform your blank canvas into a thriving garden sanctuary with expert guidance tailored specifically for new-build homes.</p>
+      <div class="mt-8">
+        <form method="post" action="https://sendfox.com/form/1dpry0/m8jod6" class="sendfox-form space-y-6" id="m8jod6" data-async="true" data-recaptcha="false">
+          <div class="space-y-4">
+            <input class="w-full rounded-lg border border-gray-300 px-4 py-3 font-serif" type="text" id="sendfox_form_name" placeholder="First Name" name="first_name" required />
+            <input class="w-full rounded-lg border border-gray-300 px-4 py-3 font-serif" type="email" id="sendfox_form_email" placeholder="Email" name="email" required />
+            <label class="flex items-center space-x-2 text-sm">
+              <input type="checkbox" name="gdpr" value="1" required class="rounded" />
+              <span>I agree to receive email updates and promotions.</span>
+            </label>
+          </div>
+          <!-- no botz please -->
+          <div style="position: absolute; left: -5000px" aria-hidden="true"><input type="text" name="a_password" tabindex="-1" value="" autocomplete="off" /></div>
+          <button class="inline-block rounded-full border border-green-800 bg-green-800 px-8 py-4 font-serif text-lg text-white shadow-lg shadow-gray-800/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-900 hover:shadow-xl hover:shadow-green-900/25 focus:outline-none focus:ring-4 focus:ring-green-800/20 focus:ring-offset-2" type="submit">Sign up for my best content</button>
+        </form>
+        <script src="https://cdn.sendfox.com/js/form.js" charset="utf-8"></script>
+      </div>
+    </div>
   </div>
-</div>
 </section>
 
 <section class="mb-12">
-  <h2 class="text-green-900 text-xl sm:text-2xl md:text-3xl font-serif py-8 sm:py-12">How I can help you.</h2>
-  <div class="md:grid md:grid-cols-12 md:grid-rows-[200px_auto_1fr] gap-6 md:space-y-0">
+  <h2 class="py-8 font-serif text-xl text-green-900 sm:py-12 sm:text-2xl md:text-3xl">How I can help you.</h2>
+  <!-- Mobile: Swipeable cards / Desktop: Grid layout -->
+  <div class="scrollbar-hide gap-6 overflow-x-auto md:grid md:grid-cols-12 md:grid-rows-[200px_auto_1fr] md:space-y-0 md:overflow-visible">
+    <div class="flex gap-4 px-4 pb-4 md:contents">
+      <div class="flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10 md:col-span-4 md:row-span-3 md:grid md:w-auto md:grid-rows-subgrid md:transition-all md:duration-300 md:hover:-translate-y-1 md:hover:shadow-xl md:hover:shadow-gray-900/15">
+        <div class="h-40 overflow-hidden md:row-start-1 md:h-auto md:rounded-t-lg">
+          <img src="/images/verbena.jpeg" class="h-full w-full object-cover" loading="lazy" />
+        </div>
+        <div class="flex flex-1 flex-col p-4 md:contents">
+          <h3 class="mb-2 font-serif text-lg font-semibold text-green-900 md:row-start-2 md:mx-4 md:mb-0 md:text-xl">Garden Design</h3>
+          <p class="flex-1 text-sm text-gray-700 md:row-start-3 md:mx-4 md:mb-6 md:text-base md:text-black">Transform your outdoor space from concept to completion. Perfect for new-build gardens which are a blank slate, or established gardens requiring total transformation. I'll guide you through the process, creating a cohesive, luxury garden that complements your home while supporting local wildlife.</p>
+        </div>
+      </div>
+      <div class="flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10 md:col-span-4 md:row-span-3 md:grid md:w-auto md:grid-rows-subgrid md:transition-all md:duration-300 md:hover:-translate-y-1 md:hover:shadow-xl md:hover:shadow-gray-900/15">
+        <div class="h-40 overflow-hidden md:row-start-1 md:h-auto md:rounded-t-lg">
+          <img src="/images/verbena.jpeg" class="h-full w-full object-cover" loading="lazy" />
+        </div>
+        <div class="flex flex-1 flex-col p-4 md:contents">
+          <h3 class="mb-2 font-serif text-lg font-semibold text-green-900 md:row-start-2 md:mx-4 md:mb-0 md:text-xl">Planting Design</h3>
+          <p class="flex-1 text-sm text-gray-700 md:row-start-3 md:mx-4 md:mb-6 md:text-base md:text-black">Breathe new life into your existing garden with expert plant selection and seasonal schemes. Ideal if your hard landscaping works well but your planting feels uninspiring, struggling, or lacks the wow-factor to match your home. I'll create naturalistic planting designs that provide year-round interest and attract wildlife.</p>
+        </div>
+      </div>
+      <div class="flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10 md:col-span-4 md:row-span-3 md:grid md:w-auto md:grid-rows-subgrid md:transition-all md:duration-300 md:hover:-translate-y-1 md:hover:shadow-xl md:hover:shadow-gray-900/15">
+        <div class="h-40 overflow-hidden md:row-start-1 md:h-auto md:rounded-t-lg">
+          <img src="/images/verbena.jpeg" class="h-full w-full object-cover" loading="lazy" />
+        </div>
+        <div class="flex flex-1 flex-col p-4 md:contents">
+          <h3 class="mb-2 font-serif text-lg font-semibold text-green-900 md:row-start-2 md:mx-4 md:mb-0 md:text-xl">Design Consultation</h3>
+          <p class="flex-1 text-sm text-gray-700 md:row-start-3 md:mx-4 md:mb-6 md:text-base md:text-black">Get expert guidance and a clear direction for your garden project. Perfect if you're overwhelmed by possibilities, want to tackle improvements yourself, or need professional advice before committing to major changes. Includes a detailed written report with recommendations and next steps tailored to your space and budget.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-12 text-center">
+    <a href="/services" class="hover:text-studiopink-100 inline-block rounded-full border border-gray-900 px-8 py-4 font-serif text-lg text-green-900 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-900 hover:shadow-xl hover:shadow-gray-900/15 focus:outline-none focus:ring-4 focus:ring-green-900/20 focus:ring-offset-2">Learn more about my services</a>
+  </div>
+</section>
+
+<section class="mb-12">
+  <h2 class="py-8 font-serif text-xl text-green-900 sm:py-12 sm:text-2xl md:text-3xl">Recent Wyld Design transformations</h2>
+
+  <!-- Mobile: Swipeable cards / Desktop: 3 vertical columns -->
+  <div class="scrollbar-hide overflow-x-auto md:grid md:grid-cols-3 md:gap-12 md:overflow-visible">
+    <div class="flex gap-4 px-4 pb-4 md:contents">
+      {{ $portfolioPages := where (where .Site.Pages "Section" "portfolio") "Kind" "page" }} {{ $featuredPortfolio := where $portfolioPages "Params.weight" ">" 0 }} {{ $sortedPortfolio := $featuredPortfolio.ByWeight }} {{ range first 3 $sortedPortfolio }}
+      <article class="group w-[280px] flex-shrink-0 md:w-auto">
+        <a href="{{ .Permalink }}" class="relative block overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
+          {{ $image := .Params.featured_image | default "/images/verbena.jpeg" }}
+          <img src="{{ $image }}" alt="{{ .Title }}" class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105 md:h-64" loading="lazy" />
+
+          <!-- Overlay - always visible on mobile, hover on desktop -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent md:opacity-0 md:transition-opacity md:duration-300 md:group-hover:opacity-100"></div>
+
+          <!-- Title overlay -->
+          <div class="absolute bottom-0 left-0 right-0 p-4 md:translate-y-2 md:transition-transform md:duration-300 md:group-hover:translate-y-0">
+            <h3 class="mb-1 font-serif text-lg font-semibold text-white md:text-xl md:opacity-0 md:transition-opacity md:delay-100 md:duration-300 md:group-hover:opacity-100">{{ .Title }}</h3>
+            <p class="text-sm text-white/80 md:opacity-0 md:transition-opacity md:delay-150 md:duration-300 md:group-hover:opacity-100">{{ .Params.location }}</p>
+          </div>
+        </a>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="py-12 text-center">
+    <a href="/portfolio" class="hover:text-studiopink-100 inline-block rounded-full border border-gray-900 px-8 py-4 font-serif text-lg text-green-900 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-900 hover:shadow-xl hover:shadow-gray-900/15 focus:outline-none focus:ring-4 focus:ring-green-900/20 focus:ring-offset-2">Find inspiration in my portfolio</a>
+  </div>
+</section>
+
+<section class="mb-12">
+  <h2 class="py-8 font-serif text-xl text-green-900 sm:py-12 sm:text-2xl md:text-3xl">Garden Design insights.</h2>
+  <div class="gap-8 md:grid md:grid-cols-12 md:grid-rows-[200px_auto_1fr_auto]">
     <!-- Mobile: Swipeable cards -->
-    <div class="md:hidden overflow-x-auto scrollbar-hide">
-      <div class="flex gap-4 pb-4 px-4">
-        <div class="border border-gray-900/10 shadow-lg shadow-gray-900/10 rounded-lg flex flex-col overflow-hidden w-[280px] flex-shrink-0">
+    <div class="scrollbar-hide overflow-x-auto md:hidden">
+      <div class="flex gap-4 px-4 pb-4">
+        <div class="flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10">
           <div class="h-40 overflow-hidden">
-            <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
+            <img src="/images/verbena.jpeg" class="h-full w-full object-cover" loading="lazy" />
           </div>
-          <div class="p-4 flex-1 flex flex-col">
-            <h3 class="text-green-900 font-serif font-semibold text-lg mb-2">Garden Design</h3>
-            <p class="text-sm text-gray-700 flex-1">
-              Transform your outdoor space from concept to completion. Perfect for new-build gardens which are a blank slate, or established gardens requiring total transformation.
-            </p>
+          <div class="flex flex-1 flex-col p-4">
+            <h3 class="mb-2 font-serif text-lg font-semibold text-green-900">Post title</h3>
+            <p class="mb-3 flex-1 text-sm text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum vero nostrum dolorem amet nesciunt.</p>
+            <a class="font-serif text-sm text-green-900">Read more...</a>
           </div>
         </div>
-        <div class="border border-gray-900/10 shadow-lg shadow-gray-900/10 rounded-lg flex flex-col overflow-hidden w-[280px] flex-shrink-0">
+        <div class="flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10">
           <div class="h-40 overflow-hidden">
-            <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
+            <img src="/images/verbena.jpeg" class="h-full w-full object-cover" loading="lazy" />
           </div>
-          <div class="p-4 flex-1 flex flex-col">
-            <h3 class="text-green-900 font-serif font-semibold text-lg mb-2">Planting Design</h3>
-            <p class="text-sm text-gray-700 flex-1">
-              Breathe new life into your existing garden with expert plant selection and seasonal schemes. Ideal if your hard landscaping works well but needs inspiring planting.
-            </p>
+          <div class="flex flex-1 flex-col p-4">
+            <h3 class="mb-2 font-serif text-lg font-semibold text-green-900">Post title</h3>
+            <p class="mb-3 flex-1 text-sm text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum vero nostrum dolorem amet nesciunt.</p>
+            <a class="font-serif text-sm text-green-900">Read more...</a>
           </div>
         </div>
-        <div class="border border-gray-900/10 shadow-lg shadow-gray-900/10 rounded-lg flex flex-col overflow-hidden w-[280px] flex-shrink-0">
+        <div class="flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10">
           <div class="h-40 overflow-hidden">
-            <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
+            <img src="/images/verbena.jpeg" class="h-full w-full object-cover" loading="lazy" />
           </div>
-          <div class="p-4 flex-1 flex flex-col">
-            <h3 class="text-green-900 font-serif font-semibold text-lg mb-2">Design Consultation</h3>
-            <p class="text-sm text-gray-700 flex-1">
-              Get expert guidance and a clear direction for your garden project. Perfect if you're overwhelmed by possibilities or need professional advice.
-            </p>
+          <div class="flex flex-1 flex-col p-4">
+            <h3 class="mb-2 font-serif text-lg font-semibold text-green-900">Post title</h3>
+            <p class="mb-3 flex-1 text-sm text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum vero nostrum dolorem amet nesciunt.</p>
+            <a class="font-serif text-sm text-green-900">Read more...</a>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- Desktop: Grid layout (hidden on mobile) -->
+
+    <!-- Desktop: Grid layout -->
     <div class="hidden md:contents">
-    <div class="border border-gray-900/10 shadow-lg shadow-gray-900/10 hover:shadow-xl hover:shadow-gray-900/15 transition-all duration-300 hover:-translate-y-1 rounded-lg flex overflow-hidden md:col-span-4 md:grid md:grid-rows-subgrid md:row-span-3">
-      <div class="w-1/3 md:w-full md:overflow-hidden md:rounded-t-lg md:row-start-1">
-        <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
+      <div class="col-span-4 row-span-4 grid grid-rows-subgrid gap-4 rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-900/15">
+        <div class="row-start-1 overflow-hidden rounded-t-lg">
+          <img src="/images/verbena.jpeg" class="h-full w-full object-cover" loading="lazy" />
+        </div>
+        <h3 class="row-start-2 m-4 font-serif text-xl text-green-900">Post title</h3>
+        <p class="row-start-3 m-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum vero nostrum dolorem amet nesciunt. Dolor aperiam consequatur suscipit, magni ipsum dolorem? Autem minima maxime non blanditiis eveniet corporis rem?</p>
+        <a class="row-start-4 m-4">Read more...</a>
       </div>
-      <div class="flex-1 p-4 md:contents">
-        <h3 class="text-green-900 font-serif font-semibold text-xl md:mx-4 md:row-start-2">Garden Design</h3>
-        <p class="text-sm sm:text-base md:mx-4 md:row-start-3">
-          Transform your outdoor space from concept to completion. Perfect for new-build gardens which are a blank slate, or established gardens requiring total transformation. I'll guide you through the process, creating a cohesive, luxury garden that complements your home while supporting local wildlife.
-        </p>
+      <div class="col-span-4 row-span-4 grid grid-rows-subgrid gap-4 rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-900/15">
+        <div class="row-start-1 overflow-hidden rounded-t-lg">
+          <img src="/images/verbena.jpeg" class="h-full w-full object-cover" loading="lazy" />
+        </div>
+        <h3 class="row-start-2 m-4 font-serif text-xl text-green-900">Post title</h3>
+        <p class="row-start-3 m-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum vero nostrum dolorem amet nesciunt. Dolor aperiam consequatur suscipit, magni ipsum dolorem? Autem minima maxime non blanditiis eveniet corporis rem?</p>
+        <a class="row-start-4 m-4">Read more...</a>
       </div>
-    </div>
-    <div class="border border-gray-900/10 shadow-lg shadow-gray-900/10 hover:shadow-xl hover:shadow-gray-900/15 transition-all duration-300 hover:-translate-y-1 rounded-lg flex overflow-hidden md:col-span-4 md:grid md:grid-rows-subgrid md:row-span-3">
-      <div class="w-1/3 md:w-full md:overflow-hidden md:rounded-t-lg md:row-start-1">
-        <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
+      <div class="col-span-4 row-span-4 grid grid-rows-subgrid gap-4 rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-900/15">
+        <div class="row-start-1 overflow-hidden rounded-t-lg">
+          <img src="/images/verbena.jpeg" class="h-full w-full object-cover" loading="lazy" />
+        </div>
+        <h3 class="row-start-2 m-4 font-serif text-xl text-green-900">Post title</h3>
+        <p class="row-start-3 m-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum vero nostrum dolorem amet nesciunt. Dolor aperiam consequatur suscipit, magni ipsum dolorem? Autem minima maxime non blanditiis eveniet corporis rem?</p>
+        <a class="row-start-4 m-4">Read more...</a>
       </div>
-      <div class="flex-1 p-4 md:contents">
-        <h3 class="text-green-900 font-serif font-semibold text-xl md:mx-4 md:row-start-2">Planting Design</h3>
-        <p class="text-sm sm:text-base md:mx-4 md:row-start-3">
-         Breathe new life into your existing garden with expert plant selection and seasonal schemes. Ideal if your hard landscaping works well but your planting feels uninspiring, struggling, or lacks the wow-factor to match your home. I'll create naturalistic planting designs that provide year-round interest and attract wildlife.
-        </p>
-      </div>
-    </div>
-    <div class="border border-gray-900/10 shadow-lg shadow-gray-900/10 hover:shadow-xl hover:shadow-gray-900/15 transition-all duration-300 hover:-translate-y-1 rounded-lg flex overflow-hidden md:col-span-4 md:grid md:grid-rows-subgrid md:row-span-3">
-      <div class="w-1/3 md:w-full md:overflow-hidden md:rounded-t-lg md:row-start-1">
-        <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
-      </div>
-      <div class="flex-1 p-4 md:contents">
-        <h3 class="text-green-900 font-serif font-semibold text-xl md:mx-4 md:row-start-2">Design Consultation</h3>
-        <p class="text-sm mb-2 sm:text-base md:mx-4 md:row-start-3">
-Get expert guidance and a clear direction for your garden project. Perfect if you're overwhelmed by possibilities, want to tackle improvements yourself, or need professional advice before committing to major changes. Includes a detailed written report with recommendations and next steps tailored to your space and budget.</p>
-      </div>
-    </div>
-    </div>
-  </div>
- <div class="text-center py-12">
-    <a href="/services" class="inline-block shadow-lg shadow-gray-900/10 border border-gray-900 text-green-900 px-8 py-4 rounded-full font-serif text-lg hover:bg-green-900 hover:text-studiopink-100 hover:shadow-xl hover:shadow-gray-900/15 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-green-900/20 focus:ring-offset-2 transition-all duration-300">Learn more about my services</a>
-  </div>
-</section>
-
-<section class="mb-12">
-  <h2 class="text-green-900 text-xl sm:text-2xl md:text-3xl font-serif py-8 sm:py-12">Recent Wyld Design transformations</h2>
-  <div class="grid md:grid-cols-12 grid-rows-[200px_auto_1fr_auto] gap-8">
-    <div class="col-span-4 border rounded-lg grid grid-rows-subgrid row-span-4 gap-4">
-      <div class="overflow-hidden rounded-t-lg row-start-1">
-        <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
-      </div>
-      <h3 class="text-green-900 m-4 font-serif text-xl row-start-2">Portfolio title</h3>
-      <div class="row-start-3"></div>
-      <a class="m-4 border rounded-lg row-start-4">More about Garden Design</a>
-    </div>
-    <div class="col-span-4 border rounded-lg grid grid-rows-subgrid row-span-4 gap-4">
-      <div class="overflow-hidden rounded-t-lg row-start-1">
-        <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
-      </div>
-      <h3 class="text-green-900 m-4 font-serif text-xl row-start-2">Portfolio title</h3>
-      <div class="row-start-3"></div>
-      <a class="m-4 border rounded-lg row-start-4">More about Planting Design</a>
-    </div>
-    <div class="col-span-4 border rounded-lg grid grid-rows-subgrid row-span-4 gap-4">
-      <div class="overflow-hidden rounded-t-lg row-start-1">
-        <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
-      </div>
-      <h3 class="text-green-900 m-4 font-serif text-xl row-start-2">Portfolio title</h3>
-      <div class="row-start-3"></div>
-      <a class="m-4 border rounded-lg row-start-4">More about Design Consultations</a>
     </div>
   </div>
 </section>
 
-<section class="py-12 mb-12 grid sm:grid-cols-12 gap-8">
-  <h2 class="text-green-900 col-span-3 text-2xl sm:text-3xl md:text-4xl font-serif">New-build gardens face unique challenges</h2>
-  <div class="col-start-5 col-span-8 space-y-5">
-    <p class="text-2xl font-serif text-green-900">With all the focus on interior finishes, many new-build gardens in Bedfordshire and Buckinghamshire are overlooked by
-    neighbours, consist of fence to fence turf and a tiny patio.</p>
-    <p class="text-lg">You should be able to:
-      <ul class="text-lg list-disc list-outside space-y-3">
-        <li>enjoy a coffee in the garden without feeling watched,</li>
-        <li>entertain friends and family in a comfortable, relaxing space, and</li>
-        <li>appreciate the seasonality and beauty of a well-designed garden.</li></ul></p>
-    <p class="text-lg">Instead, you're stuck with a garden that feels exposed and uninspiring - hardly the outdoor sanctuary that should complement your beautiful new home.</p>
-    <p class="text-lg">I help new-build owners transform these overlooked spaces into exceptional gardens that create privacy, support local wildlife, and provide the wow-factor to match your contemporary home.</p>
-    <p class="text-lg">Wyld Design creates gardens that:
-      <ul class="text-lg list-disc list-outside space-y-3">
-        <li>are buzzing with life,</li>
-        <li>have the wow-factor to match your home, and</li>
-        <li>soften the hard edges of new-build houses with flowing, seasonal planting.</li></ul></p>
-  </div>
-</section>
-
-
-<section class="mb-12">
-  <h2 class="text-green-900 text-xl sm:text-2xl md:text-3xl font-serif py-8 sm:py-12">Garden Design insights.</h2>
-  <div class="grid md:grid-cols-12 grid-rows-[200px_auto_1fr_auto] gap-8">
-    <div class="col-span-4 border border-gray-900/10 shadow-lg shadow-gray-900/10 hover:shadow-xl hover:shadow-gray-900/15 transition-all duration-300 hover:-translate-y-1 rounded-lg grid grid-rows-subgrid row-span-4 gap-4">
-      <div class="overflow-hidden rounded-t-lg row-start-1">
-        <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
-      </div>
-      <h3 class="text-green-900 m-4 font-serif text-xl row-start-2">Post title</h3>
-      <p class="m-4 row-start-3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum vero nostrum dolorem amet nesciunt. Dolor aperiam
-        consequatur suscipit, magni ipsum dolorem? Autem minima maxime non blanditiis eveniet corporis rem?
-      </p>
-      <a class="m-4 row-start-4">Read more...</a>
-    </div>
-    <div class="col-span-4 border border-gray-900/10 shadow-lg shadow-gray-900/10 hover:shadow-xl hover:shadow-gray-900/15 transition-all duration-300 hover:-translate-y-1 rounded-lg grid grid-rows-subgrid row-span-4 gap-4">
-      <div class="overflow-hidden rounded-t-lg row-start-1">
-        <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
-      </div>
-      <h3 class="text-green-900 m-4 font-serif text-xl row-start-2">Post title</h3>
-      <p class="m-4 row-start-3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum vero nostrum dolorem amet nesciunt. Dolor aperiam
-        consequatur suscipit, magni ipsum dolorem? Autem minima maxime non blanditiis eveniet corporis rem?
-      </p>
-      <a class="m-4 row-start-4">Read more...</a>
-    </div>
-    <div class="col-span-4 border border-gray-900/10 shadow-lg shadow-gray-900/10 hover:shadow-xl hover:shadow-gray-900/15 transition-all duration-300 hover:-translate-y-1 rounded-lg grid grid-rows-subgrid row-span-4 gap-4">
-      <div class="overflow-hidden rounded-t-lg row-start-1">
-        <img src="/images/verbena.jpeg" class="w-full h-full object-cover" loading="lazy"/>
-      </div>
-      <h3 class="text-green-900 m-4 font-serif text-xl row-start-2">Post title</h3>
-      <p class="m-4 row-start-3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint earum vero nostrum dolorem amet nesciunt. Dolor aperiam
-        consequatur suscipit, magni ipsum dolorem? Autem minima maxime non blanditiis eveniet corporis rem?
-      </p>
-      <a class="m-4 row-start-4">Read more...</a>
-    </div>
-  </div>
-</section>
-
-<section class="py-12 mb-12 grid sm:grid-cols-12 gap-8">
+<section class="mb-12 grid gap-8 py-12 sm:grid-cols-12">
   <div class="col-span-6 flex flex-col justify-between">
-    <h2 class="text-green-900 text-2xl sm:text-3xl md:text-4xl font-serif">Areas I serve.</h2>
+    <h2 class="font-serif text-2xl text-green-900 sm:text-3xl md:text-4xl">Areas I serve.</h2>
     <div class="space-y-6">
       <p>I create exceptional contemporary gardens across Bedfordshire, Buckinghamshire, Hertfordshire, Northamptonshire, and Oxfordshire, serving homeowners in market towns and villages throughout the region.</p>
       <p>For exceptional projects that align with my design philosophy, I'm happy to discuss opportunities beyond these core areas. The quality of the brief and vision matter more than postcode.</p>
-    </div>  
-  </div>
-  <div class="col-start-7 col-span-6">
-    <img class="w-full h-full object-cover overflow-hidden shadow-lg shadow-gray-900/10 rounded-lg" src="/images/areamap.png" loading="lazy">
-  </div>
-</section>
-
-<section class="py-12 mb-12">
-<div class="py-12 grid sm:grid-cols-12 gap-8">
-  <div class="col-span-6">
-    <img src="/images/checklist.jpeg" class="w-full max-h-[700px] object-cover rounded-lg" loading="lazy"/>
-  </div>
-  <div class="col-span-6 flex flex-col justify-end">
-    <h2 class="text-green-900 text-2xl sm:text-3xl md:text-4xl font-serif">Get your free new-build garden checklist.</h2>
-    <p class="mt-4 text-gray-800 text-l sm:text-xl font-serif">
-      Transform your blank canvas into a thriving garden sanctuary with expert guidance tailored specifically for new-build homes.
-    </p>
-    <div class="mt-8">
-      <form method="post" action="https://sendfox.com/form/1dpry0/m8jod6" class="sendfox-form space-y-6" id="m8jod6" data-async="true" data-recaptcha="false">
-        <div class="space-y-4">
-          <input class="border border-gray-300 px-4 py-3 w-full rounded-lg font-serif" type="text" id="sendfox_form_name" placeholder="First Name" name="first_name" required />
-          <input class="border border-gray-300 px-4 py-3 w-full rounded-lg font-serif" type="email" id="sendfox_form_email" placeholder="Email" name="email" required />
-          <label class="flex items-center space-x-2 text-sm">
-            <input type="checkbox" name="gdpr" value="1" required class="rounded" />
-            <span>I agree to receive email updates and promotions.</span>
-          </label>
-        </div>
-        <!-- no botz please -->
-        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="a_password" tabindex="-1" value="" autocomplete="off" /></div>
-        <button class="inline-block shadow-lg shadow-gray-800/20 border border-green-800 text-white bg-green-800 px-8 py-4 rounded-full font-serif text-lg hover:bg-gray-900 hover:shadow-xl hover:shadow-green-900/25 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-green-800/20 focus:ring-offset-2 transition-all duration-300" type="submit">Sign up for my best content</button>
-      </form>
-      <script src="https://cdn.sendfox.com/js/form.js" charset="utf-8"></script>
     </div>
   </div>
-</div>
+  <div class="col-span-6 col-start-7">
+    <img class="h-full w-full overflow-hidden rounded-lg object-cover shadow-lg shadow-gray-900/10" src="/images/areamap.png" loading="lazy" />
+  </div>
 </section>
 
 {{ end }}
