@@ -1,9 +1,9 @@
 {{ define "main" }}
 <section class="mb-12">
-  <div class="py-12 text-center">
+  <div class="py-12">
     <h1 class="font-serif text-2xl font-bold text-green-900 sm:text-4xl md:text-6xl">{{ .Title }}</h1>
     {{ if .Content }}
-    <div class="prose prose-lg mx-auto mt-8 max-w-none">{{ .Content }}</div>
+    <div class="prose prose-lg mt-8 max-w-[90ch]">{{ .Content }}</div>
     {{ end }}
   </div>
 </section>
@@ -11,72 +11,34 @@
 <section class="mb-12">
   {{ $pages := .Pages }} {{ if .Params.sort_by_weight }} {{ $pages = .Pages.ByWeight }} {{ else }} {{ $pages = .Pages.ByDate.Reverse }} {{ end }}
 
-  <div class="grid gap-8">
-    {{ range $index, $page := $pages }}
-    <article class="overflow-hidden rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-900/15">
-      <div class="grid gap-0 md:grid-cols-12">
-        <!-- Image -->
-        <div class="md:col-span-5">
-          {{ if $page.Params.featured_image }}
-          <img src="{{ $page.Params.featured_image }}" alt="{{ $page.Title }}" class="h-64 w-full object-cover md:h-full" loading="lazy" />
-          {{ else }}
-          <img src="/images/verbena.jpeg" alt="{{ $page.Title }}" class="h-64 w-full object-cover md:h-full" loading="lazy" />
+  <div class="grid auto-rows-max grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    {{ range $index, $page := $pages }} {{ $isFeatured := and (lt $index 6) (eq (mod $index 3) 0) }}
+    <article class="group {{ if $isFeatured }}sm:col-span-2{{ end }}">
+      <a href="{{ $page.Permalink }}" class="relative block overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
+        {{ if $page.Params.featured_image }}
+        <img src="{{ $page.Params.featured_image }}" alt="{{ $page.Title }}" class="w-full {{ if $isFeatured }}h-80 sm:h-96{{ else }}h-64{{ end }} object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+        {{ else }}
+        <img src="/images/verbena.jpeg" alt="{{ $page.Title }}" class="w-full {{ if $isFeatured }}h-80 sm:h-96{{ else }}h-64{{ end }} object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+        {{ end }}
+
+        <!-- Always visible overlay for mobile, hover overlay for desktop -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100"></div>
+
+        <!-- Title overlay - always visible on mobile, hover on desktop -->
+        <div class="absolute bottom-0 left-0 right-0 p-4 transition-transform duration-300 sm:translate-y-2 sm:group-hover:translate-y-0">
+          <h2 class="mb-1 font-serif text-xl font-semibold text-white transition-opacity delay-100 duration-300 sm:opacity-0 sm:group-hover:opacity-100 md:text-2xl">{{ $page.Title }}</h2>
+          {{ if $page.Params.location }}
+          <p class="text-sm text-white/80 transition-opacity delay-150 duration-300 sm:opacity-0 sm:group-hover:opacity-100">{{ $page.Params.location }}</p>
           {{ end }}
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col justify-between p-6 md:col-span-7">
-          <div>
-            <h2 class="mb-2 font-serif text-2xl text-green-900">
-              <a href="{{ $page.Permalink }}" class="transition-colors hover:text-green-700">{{ $page.Title }}</a>
-            </h2>
-
-            <!-- Project meta -->
-            <div class="mb-4 flex flex-wrap gap-4 text-sm text-gray-600">
-              {{ if $page.Params.location }}
-              <span>📍 {{ $page.Params.location }}</span>
-              {{ end }} {{ if $page.Params.year }}
-              <span>📅 {{ $page.Params.year }}</span>
-              {{ end }} {{ if $page.Params.project_type }}
-              <span>🏡 {{ $page.Params.project_type }}</span>
-              {{ end }}
-            </div>
-
-            {{ if $page.Params.summary }}
-            <p class="mb-4 text-gray-700">{{ $page.Params.summary }}</p>
-            {{ else }}
-            <p class="mb-4 text-gray-700">{{ $page.Summary }}</p>
-            {{ end }}
-
-            <!-- Services provided -->
-            {{ if $page.Params.services_provided }}
-            <div class="mb-4">
-              <div class="flex flex-wrap gap-2">
-                {{ range first 3 $page.Params.services_provided }}
-                <span class="inline-block rounded bg-green-100 px-2 py-1 text-xs font-medium text-green-800">{{ . }}</span>
-                {{ end }} {{ if gt (len $page.Params.services_provided) 3 }}
-                <span class="inline-block rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">+{{ sub (len $page.Params.services_provided) 3 }} more</span>
-                {{ end }}
-              </div>
-            </div>
-            {{ end }}
-          </div>
-
-          <div class="flex items-center justify-between border-t border-gray-200 pt-4">
-            <a href="{{ $page.Permalink }}" class="inline-block font-serif text-green-900 transition-colors hover:text-green-700">View Project →</a>
-            {{ if $page.Params.style }}
-            <span class="text-sm italic text-gray-500">{{ $page.Params.style }}</span>
-            {{ end }}
-          </div>
-        </div>
-      </div>
+      </a>
     </article>
     {{ end }}
   </div>
 </section>
 
 <!-- Call to Action -->
-<section class="mb-12 rounded-lg bg-green-50 py-12 text-center">
+<section class="rounded-lgborder mb-12 border-gray-900/10 py-12 text-center shadow-lg shadow-gray-900/10">
   <h2 class="mb-4 font-serif text-3xl text-green-900">Ready to Transform Your Garden?</h2>
   <p class="mb-8 text-xl text-gray-700">Let's discuss how I can help create your perfect outdoor space.</p>
   <a href="/contact" class="inline-block rounded-full border border-green-800 bg-green-800 px-8 py-4 font-serif text-lg text-white shadow-lg shadow-green-800/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-900 hover:shadow-xl hover:shadow-green-900/25 focus:outline-none focus:ring-4 focus:ring-green-800/20 focus:ring-offset-2">Get In Touch</a>

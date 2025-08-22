@@ -9,31 +9,31 @@ project_type: "Garden Design"
 size: "Medium suburban garden"
 style: "Contemporary naturalistic"
 featured_image: "/images/verbena.jpeg"
-gallery_images: 
+gallery_images:
   - "/images/verbena.jpeg"
   - "/images/ralph.jpeg"
 summary: "A complete garden transformation focusing on privacy, wildlife, and year-round interest for a contemporary new-build home."
-services_provided: 
+services_provided:
   - "Garden Design"
-  - "Planting Design" 
+  - "Planting Design"
   - "Project Management"
-challenges: 
+challenges:
   - "Overlooked by neighbors"
   - "Poor quality builder's soil"
   - "Lack of privacy and structure"
-solutions: 
+solutions:
   - "Strategic screening with evergreen plantings"
   - "Soil improvement and drainage"
   - "Strong geometric framework with naturalistic planting"
-plants_featured: 
+plants_featured:
   - "Verbena bonariensis"
   - "Stipa gigantea"
   - "Echinacea purpurea"
-materials: 
+materials:
   - "Natural stone paving"
   - "Cor-ten steel planters"
   - "Gravel mulch"
-tags: 
+tags:
   - "contemporary"
   - "new-build"
   - "wildlife-friendly"
@@ -47,7 +47,7 @@ This garden transformation demonstrates how thoughtful design can turn a typical
 When the clients moved into their new Bedfordshire home, they inherited a typical developer's garden: a rectangular plot of compacted clay soil, bounded by close-board fencing, with minimal topsoil and no privacy from neighboring properties. The challenge was to create a garden that matched the quality and style of their contemporary home while providing:
 
 - Privacy from overlooking windows
-- Year-round structure and interest  
+- Year-round structure and interest
 - Wildlife habitat
 - Low-maintenance planting
 - Connection between indoor and outdoor spaces
