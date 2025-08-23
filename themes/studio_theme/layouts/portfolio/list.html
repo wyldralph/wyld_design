@@ -9,16 +9,16 @@
 </section>
 
 <section class="mb-12">
-  {{ $pages := .Pages }} {{ if .Params.sort_by_weight }} {{ $pages = .Pages.ByWeight }} {{ else }} {{ $pages = .Pages.ByDate.Reverse }} {{ end }}
+  {{ $pages := .Pages }} {{ if .Params.sort_by_weight }} {{ $pages = .Pages.ByWeight }} {{ else }} {{ $pages = .Pages.ByDate.Reverse }} {{ end }} {{ $featuredPages := where $pages "Params.featured" true }} {{ $regularPages := where $pages "Params.featured" "!=" true }} {{ $finalPages := slice }} {{ $featuredIndex := 0 }} {{ $regularIndex := 0 }} {{ range $index := seq 0 (sub (add (len $featuredPages) (len $regularPages)) 1) }} {{ $groupOf6 := div $index 6 }} {{ $posInGroup := mod $index 6 }} {{ $isFeaturedPosition := or (eq $posInGroup 0) (eq $posInGroup 3) }} {{ if $isFeaturedPosition }} {{ if lt $featuredIndex (len $featuredPages) }} {{ $finalPages = $finalPages | append (index $featuredPages $featuredIndex) }} {{ $featuredIndex = add $featuredIndex 1 }} {{ else }} {{ if lt $regularIndex (len $regularPages) }} {{ $finalPages = $finalPages | append (index $regularPages $regularIndex) }} {{ $regularIndex = add $regularIndex 1 }} {{ end }} {{ end }} {{ else }} {{ if lt $regularIndex (len $regularPages) }} {{ $finalPages = $finalPages | append (index $regularPages $regularIndex) }} {{ $regularIndex = add $regularIndex 1 }} {{ else }} {{ if lt $featuredIndex (len $featuredPages) }} {{ $finalPages = $finalPages | append (index $featuredPages $featuredIndex) }} {{ $featuredIndex = add $featuredIndex 1 }} {{ end }} {{ end }} {{ end }} {{ end }}
 
-  <div class="grid auto-rows-max grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-    {{ range $index, $page := $pages }} {{ $isFeatured := and (lt $index 6) (eq (mod $index 3) 0) }}
-    <article class="group {{ if $isFeatured }}sm:col-span-2{{ end }}">
-      <a href="{{ $page.Permalink }}" class="relative block overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
+  <div class="grid auto-rows-max grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {{ range $index, $page := $finalPages }} {{ $posInGroup := mod $index 6 }} {{ $isFeatured := or (eq $posInGroup 0) (eq $posInGroup 3) }}
+    <article class="group {{ if $isFeatured }}sm:col-span-2 sm:row-span-2{{ end }}">
+      <a href="{{ $page.Permalink }}" class="relative block overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl {{ if $isFeatured }}h-full{{ end }}">
         {{ if $page.Params.featured_image }}
-        <img src="{{ $page.Params.featured_image }}" alt="{{ $page.Title }}" class="w-full {{ if $isFeatured }}h-80 sm:h-96{{ else }}h-64{{ end }} object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+        <img src="{{ $page.Params.featured_image }}" alt="{{ $page.Title }}" class="w-full {{ if $isFeatured }}h-full{{ else }}h-64{{ end }} object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
         {{ else }}
-        <img src="/images/verbena.jpeg" alt="{{ $page.Title }}" class="w-full {{ if $isFeatured }}h-80 sm:h-96{{ else }}h-64{{ end }} object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+        <img src="/images/verbena.jpeg" alt="{{ $page.Title }}" class="w-full {{ if $isFeatured }}h-full{{ else }}h-64{{ end }} object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
         {{ end }}
 
         <!-- Always visible overlay for mobile, hover overlay for desktop -->

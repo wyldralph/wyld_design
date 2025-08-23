@@ -8,8 +8,8 @@ year: "2024"
 project_type: "Planting Design"
 size: "Large suburban garden"
 style: "Modern naturalistic"
-featured_image: "/images/verbena.jpeg"
-gallery_images: ["/images/verbena.jpeg"]
+featured_image: "https://i.pinimg.com/originals/bc/77/ee/bc77ee6a6f88d8fe050e98df9dc02d30.jpg"
+gallery_images: ["/images/verbena.jpeg", "https://i.pinimg.com/originals/bc/77/ee/bc77ee6a6f88d8fe050e98df9dc02d30.jpg"]
 summary: "A naturalistic planting scheme that brings year-round color and wildlife to an established garden."
 services_provided: ["Planting Design", "Plant Selection"]
 challenges: ["Tired existing planting", "Need for four-season interest"]

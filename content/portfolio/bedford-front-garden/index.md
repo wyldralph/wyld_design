@@ -1,6 +1,6 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
+title: "Bedford Front Garden"
+date: 2025-08-23T14:10:45+01:00
 draft: true
 client: ""
 location: ""

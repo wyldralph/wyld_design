@@ -8,8 +8,8 @@ year: "2024"
 project_type: "Design Consultation"
 size: "Medium family garden"
 style: "Contemporary family-friendly"
-featured_image: "/images/verbena.jpeg"
-gallery_images: ["/images/verbena.jpeg"]
+featured_image: "https://i.pinimg.com/originals/99/74/54/9974549d60074081c93a32ab6279ba18.png"
+gallery_images: ["/images/verbena.jpeg", "https://i.pinimg.com/originals/99/74/54/9974549d60074081c93a32ab6279ba18.png"]
 summary: "Strategic design consultation providing clear direction for a phased garden transformation."
 services_provided: ["Design Consultation", "Master Planning", "Phasing Strategy"]
 challenges: ["Limited budget", "Unclear design direction", "Phased implementation needed"]
