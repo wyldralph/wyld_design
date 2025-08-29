@@ -3,4 +3,127 @@
 
 @theme {
   --color-studiopink-100: oklch(0.9654 0.0111 31.07);
+  --font-serif: "Vollkorn", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Vollkorn Font Family */
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-MediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-SemiBoldItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-ExtraBoldItalic.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  src: url("/fonts/Vollkorn-BlackItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+/* Process Steps Component */
+.process-steps-container ol {
+  @apply flex list-none flex-col space-y-8 p-0;
+  counter-reset: step-counter;
+}
+
+.process-steps-container ol li {
+  @apply relative pl-12 text-lg leading-relaxed sm:grid sm:grid-cols-[3rem_1fr] sm:items-start sm:gap-6 sm:pl-0;
+  counter-increment: step-counter;
+}
+
+.process-steps-container ol li::before {
+  content: counter(step-counter);
+  @apply absolute left-0 top-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-green-900 font-serif text-sm font-bold text-white shadow-lg sm:static sm:h-10 sm:w-10 sm:text-base;
+}
+
+.process-steps-container ol li > * {
+  @apply sm:col-start-2;
+}
+
+.process-steps-container ol li::before {
+  @apply sm:col-start-1 sm:row-start-1;
 }

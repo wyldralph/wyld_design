@@ -1,0 +1,19 @@
+{{- $level := .Get "level" | default "2" -}}
+{{- $content := .Get "content" | default .Inner -}}
+{{- $class := .Get "class" | default "" -}}
+
+{{ if eq $level "1" }}
+<h1{{ with $class }} class="{{ . }}"{{ end }}>{{ $content | markdownify }}</h1>
+{{ else if eq $level "2" }}
+<h2{{ with $class }} class="{{ . }}"{{ end }}>{{ $content | markdownify }}</h2>
+{{ else if eq $level "3" }}
+<h3{{ with $class }} class="{{ . }}"{{ end }}>{{ $content | markdownify }}</h3>
+{{ else if eq $level "4" }}
+<h4{{ with $class }} class="{{ . }}"{{ end }}>{{ $content | markdownify }}</h4>
+{{ else if eq $level "5" }}
+<h5{{ with $class }} class="{{ . }}"{{ end }}>{{ $content | markdownify }}</h5>
+{{ else if eq $level "6" }}
+<h6{{ with $class }} class="{{ . }}"{{ end }}>{{ $content | markdownify }}</h6>
+{{ else }}
+<h2{{ with $class }} class="{{ . }}"{{ end }}>{{ $content | markdownify }}</h2>
+{{ end }}

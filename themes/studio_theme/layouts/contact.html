@@ -1,0 +1,29 @@
+{{ define "main" }} {{ $t := time.Now }} {{ $currentMonth := $t.Month.String }} {{ $nextMonth := ($t.AddDate 0 1 0).Month.String }}
+
+<section class="mb-12">
+  <div class="py-12">
+    <h1 class="font-serif text-2xl font-bold text-green-900 sm:text-4xl md:text-6xl">{{ .Title }}</h1>
+    {{ if .Content }}
+    <div class="prose prose-lg mt-8 max-w-[90ch]">{{ .Content }} {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }} {{ end }}</div>
+    <div class="space-y-12">
+        <p class="font-serif text-2xl text-green-900">
+          I'm currently available for new projects starting from
+          <b>{{ $nextMonth }}</b>.</p>
+        <p class="font-serif text-2xl text-green-900">If you're ready to discuss your project, please <a class="underline hover:decoration-green-900 decoration-3 underline-offset-3 decoration-green-900/50 motion-reduce:transition-none focus:decoration-green-900/50 transition-all duration-300" href="mailto:hello@wylddesign.studio">send me an email</a> or <a class="underline decoration-3 hover:decoration-green-900 underline-offset-3 decoration-green-900/50 motion-reduce:transition-none
+transition-all duration-300" href="https://tidycal.com/wylddesign/discovery">book a short phone or video call</a>.</p>
+        </p>
+        <a href="mailto:hello@wylddesign.studio?subject=Garden%20Design%20Enquiry&body=Hi%20Ralph,">
+          <div class="w-128 bg-white border border-gray-900/10 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-900/15 p-12 space-y-6 leading-6 rounded-xl">
+            <p class="border-b border-gray-300 pb-6 font-bold">Re: Garden Design Enquiry</p>
+            <p>Hi Ralph,</p>
+            <p>We're just getting settled into a new house Silsoe, and we've put out personal stamp on the interiors. However, the garden is still totally blank, and a friend recommended we get in touch with you. We've had a look through your portfolio, and love your work.</p>
+            <p>We're very keen to introduce some planting and habitats for wildlife, around a new entertaining area. We'd also like to bring in some screening for privacy, and perhaps a contemporary water feature.</p>
+            <p>We're not exactly sure about our budget, but we're probably looking to spend £30,000-50,000. If you could help us find a landscaper as well, that would be great.</p>
+            <p>We look forward to hearing from you...</p>
+          </div>
+        </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

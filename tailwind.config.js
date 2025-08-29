@@ -1,18 +1,22 @@
 export default {
-  content: ["./themes/wyld/layouts/**/*.html", "./content/**/*.md", "./themes/wyld/assets/**/*.js"],
+  content: [
+    "./themes/studio_theme/layouts/**/*.html",
+    "./content/**/*.md",
+    "./themes/studio_theme/assets/**/*.js",
+    "./layouts/**/*.html",
+  ],
   theme: {
-    extend: {
-      fontFamily: {
-        serif: ["Iowan Old Style", "Palatino Linotype", "URW Palladio L", "P052", "serif"],
-        sans: [
-          "Bahnschrift",
-          "DIN Alternate",
-          "Franklin Gothic Medium",
-          "Nimbus Sans Narrow",
-          "sans-serif-condensed",
-          "sans-serif",
-        ],
-      },
+    fontFamily: {
+      serif: ["Vollkorn", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+      sans: [
+        "Bahnschrift",
+        "DIN Alternate",
+        "Franklin Gothic Medium",
+        "Nimbus Sans Narrow",
+        "sans-serif-condensed",
+        "sans-serif",
+      ],
     },
+    extend: {},
   },
 };

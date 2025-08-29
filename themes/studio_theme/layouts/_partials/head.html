@@ -1,5 +1,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+<!-- Preload Vollkorn fonts for faster loading -->
+<link rel="preload" href="/fonts/Vollkorn-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/Vollkorn-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/Vollkorn-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 {{ with (templates.Defer (dict "key" "global")) }} {{ partial "head/css.html" . }} {{ end }} {{ partialCached
 "head/js.html" . }}
