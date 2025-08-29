@@ -16,7 +16,7 @@
     <article class="group {{ if $isFeatured }}sm:col-span-2 sm:row-span-2{{ end }}">
       <a href="{{ $page.Permalink }}" class="relative block overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl {{ if $isFeatured }}h-full{{ end }}">
         {{ if $page.Params.featured_image }}
-        <img src="{{ $page.Params.featured_image }}" alt="{{ $page.Title }}" class="w-full {{ if $isFeatured }}h-full{{ else }}h-64{{ end }} object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+        <img src="{{ $page.RelPermalink }}{{ $page.Params.featured_image }}" alt="{{ $page.Title }}" class="w-full {{ if $isFeatured }}h-full{{ else }}h-64{{ end }} object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
         {{ else }}
         <img src="/images/verbena.jpeg" alt="{{ $page.Title }}" class="w-full {{ if $isFeatured }}h-full{{ else }}h-64{{ end }} object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
         {{ end }}

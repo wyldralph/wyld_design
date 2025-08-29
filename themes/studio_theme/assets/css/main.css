@@ -2,7 +2,7 @@
 @source "hugo_stats.json";
 
 @theme {
-  --color-studiopink-100: oklch(0.9654 0.0111 31.07);
+  --color-studiopink-100: oklch(0.97 0 17);
   --font-serif: "Vollkorn", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
@@ -102,7 +102,6 @@
   font-style: italic;
   font-display: swap;
 }
-
 
 /* Process Steps Component */
 .process-steps-container ol {
