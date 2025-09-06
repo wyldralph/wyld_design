@@ -16,5 +16,3 @@ The design is then ready to be brought to life, realised first through detail ma
 No garden is complete without planting, which connects us to the seasons, provides habitats for wildlife, and improves mood, well-being, and reduces physiological stress. Using knowledge of the site conditions, and the wider ecological landscape, I design naturalistic planting which works with, rather than against, the natural conditions.
 
 Gardens evolve over time, and develop in ways we could never imagine or control. For this reason our conversations continue beyond the handover of the 'finished' project.
-
-Read more about my {{< link href="/process/design-consultation" text="consultations" />}}, {{< link href="/process/garden-design" text="garden design" />}}, and {{< link href="/process/planting-design" text="planting design" />}}.

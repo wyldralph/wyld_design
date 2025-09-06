@@ -30,9 +30,6 @@ menus:
     - name: About
       pageRef: /about
       weight: 50
-    - name: Projects
-      pageRef: /projects
-      weight: 20
     - name: Process
       pageRef: /process
       weight: 30
@@ -46,9 +43,6 @@ menus:
     - name: About
       pageRef: /about
       weight: 20
-    - name: Projects
-      pageRef: /projects
-      weight: 30
     - name: Process
       pageRef: /process
       weight: 40
