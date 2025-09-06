@@ -17,4 +17,4 @@ No garden is complete without planting, which connects us to the seasons, provid
 
 Gardens evolve over time, and develop in ways we could never imagine or control. For this reason our conversations continue beyond the handover of the 'finished' project.
 
-Read more about my {{< link href="/services/design-consultation" text="consultations" />}}, {{< link href="/services/garden-design" text="garden design" />}}, and {{< link href="/services/planting-design" text="planting design" />}}.
+Read more about my {{< link href="/process/design-consultation" text="consultations" />}}, {{< link href="/process/garden-design" text="garden design" />}}, and {{< link href="/process/planting-design" text="planting design" />}}.
