@@ -1,8 +1,33 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
+<section class="mb-12 space-y-12 max-w-4xl">
+    <h1 class="font-serif text-2xl text-green-900 sm:text-4xl md:text-6xl">{{ .Title }}</h1>
+    {{ if .Content }}
+    <div class="mt-6 space-y-12 font-serif text-2xl leading-10 text-zinc-800">{{ .Content }}</div>
+    {{ end }}
+
+  {{ if .Pages }}
+  <div class="grid grid-rows-[repeat((auto-fit, 200px auto 1fr)] grid-cols-1 gap-6 md:grid-cols-2">
+    {{ range .Pages }}
+      <article class="grid row-span-3 h-full grid-rows-subgrid overflow-hidden rounded-sm border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-lg cursor-pointer" style="grid-row: span 3" onclick="window.location.href='{{ .RelPermalink }}'">
+        <div class="p-6 pb-0">
+          <div class="aspect-video overflow-hidden rounded-sm">
+            <img src="{{ .Params.image | default "/images/verbena.jpeg" }}" alt="{{ .Title }}" loading="lazy" class="h-full w-full object-cover" />
+          </div>
+        </div>
+
+        <h2 class="p-4 font-serif text-xl font-bold text-green-900">
+          <a href="{{ .RelPermalink }}" class="decoration-3 underline-offset-3 underline decoration-orange-500/50 transition-all duration-300 hover:decoration-orange-500 focus:decoration-orange-900/50 motion-reduce:transition-none">{{ .LinkTitle }}</a>
+        </h2>
+
+        <div class="px-6 pb-6">
+          {{ if .Summary }}
+          <div class="font-serif text-base leading-relaxed text-zinc-700">{{ .Summary }}</div>
+          {{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </div>
   {{ end }}
+</section>
+
 {{ end }}

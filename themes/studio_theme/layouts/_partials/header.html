@@ -1,23 +1,31 @@
-<div class="flex flex-row items-baseline justify-start md:justify-start">
-  <!-- Mobile menu button - positioned first for flex order -->
-  <button id="mobile-menu-button" class="order-1 p-2 focus:outline-none md:hidden">
+<!-- Clean header layout -->
+<div class="mb-12 py-6">
+  <!-- Mobile menu button -->
+  <button id="mobile-menu-button" class="absolute right-6 top-6 p-2 focus:outline-none md:hidden">
     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
   </button>
 
-  <!-- Logo - centered on mobile -->
-  <a href="/" class="order-2 mx-auto md:order-1 md:mx-0 md:ml-1">
-    <img class="sm:w-42 mt-2 w-24 translate-y-2" src="/images/logo_green.png" />
-  </a>
+  <!-- Desktop header container -->
+  <div class="mx-auto">
+    <div class="flex items-center justify-between">
+      <!-- Logo top left -->
+      <div class="mr-6">
+        <a href="/" class="inline-block transition-opacity duration-300 hover:opacity-70">
+          <img class="h-24 w-auto sm:h-24 md:h-16 lg:h-32" src="/images/logo_green.png" alt="Logo" />
+        </a>
+      </div>
 
-  <!-- Desktop menu -->
-  <div class="order-3 hidden md:flex">{{ partial "menu.html" (dict "menuID" "main" "page" . "ulClass" "flex font-serif text-lg space-x-8 ml-8 text-green-900") }}</div>
-
-  <!-- Spacer for mobile to balance the hamburger button -->
-  <div class="order-3 h-6 w-6 p-2 md:hidden"></div>
-
-  <a href="/contact" class="border-1 hover:text-studiopink-100 focus:text-studiopink-100 order-4 ml-auto mr-1 mt-2 hidden self-auto rounded-lg border-green-900 px-2 py-1 font-serif text-lg text-green-900 underline underline-offset-2 transition-all duration-300 after:content-['_→'] hover:bg-green-900 focus:bg-green-900 motion-reduce:transition-none md:block">Available for Autumn projects</a>
+      <!-- Navigation top right with flex expansion -->
+      <div class="hidden md:flex md:flex-1 md:justify-end">
+        <nav class="flex items-center gap-4 md:gap-6 lg:gap-8">
+          {{ partial "menu.html" (dict "menuID" "main" "page" . "ulClass" "flex items-center gap-4 md:gap-6 lg:gap-8 font-serif text-sm md:text-base lg:text-xl text-green-900") }}
+          <a href="/contact" class="border-1 decoration-3 underline-offset-3 rounded-lg border-green-900 px-3 py-2 font-serif text-sm text-green-900 underline decoration-green-900/50 transition-all duration-300 after:content-['_→'] hover:decoration-green-900 focus:decoration-green-900/50 motion-reduce:transition-none lg:text-lg">Available for Autumn projects</a>
+        </nav>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Mobile menu -->

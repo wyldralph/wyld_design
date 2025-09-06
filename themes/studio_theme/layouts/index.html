@@ -1,1 +1,5 @@
-{{ define "main" }} {{ end }}
+{{ define "main" }}
+<section class="mb-24 max-w-4xl">
+  <div class="space-y-24 font-serif text-2xl leading-10 text-zinc-800">{{ .Content }} {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
+</section>
+{{ end }}

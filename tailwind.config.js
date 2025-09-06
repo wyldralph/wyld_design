@@ -7,7 +7,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      serif: ["Vollkorn", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+      serif: ["Lusitana", "Superclarendon", "Bookman Old Style", "URW Bookman", "URW Bookman L", "Georgia Pro", "Georgia", "serif"],
       sans: [
         "Bahnschrift",
         "DIN Alternate",

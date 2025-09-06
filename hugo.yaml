@@ -29,15 +29,15 @@ menus:
   main:
     - name: About
       pageRef: /about
-      weight: 10
-    - name: Portfolio
-      pageRef: /portfolio
+      weight: 50
+    - name: Projects
+      pageRef: /projects
       weight: 20
-    - name: Services
-      pageRef: /services
+    - name: Process
+      pageRef: /process
       weight: 30
-    - name: Blog
-      pageRef: /blog
+    - name: Journal
+      pageRef: /journal
       weight: 40
   footer:
     - name: Home
@@ -46,14 +46,14 @@ menus:
     - name: About
       pageRef: /about
       weight: 20
-    - name: Portfolio
-      pageRef: /portfolio
+    - name: Projects
+      pageRef: /projects
       weight: 30
-    - name: Services
-      pageRef: /services
+    - name: Process
+      pageRef: /process
       weight: 40
-    - name: Blog
-      pageRef: /blog
+    - name: Journal
+      pageRef: /journal
       weight: 50
     - name: Contact
       pageRef: /contact
