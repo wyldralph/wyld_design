@@ -24,12 +24,14 @@
     "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.21",
     "postcss-cli": "^11.0.1",
-    "prettier": "^3.0.0",
-    "prettier-plugin-tailwindcss": "^0.5.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-go-template": "^0.0.15",
+    "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.12"
   },
   "prettier": {
     "plugins": [
+      "prettier-plugin-go-template",
       "prettier-plugin-tailwindcss"
     ],
     "printWidth": 120,
@@ -38,9 +40,7 @@
       {
         "files": "*.html",
         "options": {
-          "parser": "html",
-          "printWidth": 9999,
-          "htmlWhitespaceSensitivity": "ignore"
+          "parser": "go-template"
         }
       }
     ]

@@ -143,3 +143,34 @@
 .process-steps-container ol li::before {
   @apply sm:col-start-1 sm:row-start-1;
 }
+
+/* Header Styles for Project and Journal Content Only */
+.project-content h1,
+.journal-content h1 {
+  @apply font-serif text-3xl font-bold text-green-900 mb-6 mt-8 first:mt-0 leading-tight sm:text-4xl lg:text-5xl;
+}
+
+.project-content h2,
+.journal-content h2 {
+  @apply font-serif text-2xl font-bold text-green-900 mb-5 mt-8 first:mt-0 leading-tight sm:text-3xl lg:text-4xl;
+}
+
+.project-content h3,
+.journal-content h3 {
+  @apply font-serif text-xl font-semibold text-green-900 mb-4 mt-6 first:mt-0 leading-tight sm:text-2xl lg:text-3xl;
+}
+
+.project-content h4,
+.journal-content h4 {
+  @apply font-serif text-lg font-semibold text-green-900 mb-4 mt-6 first:mt-0 leading-tight sm:text-xl lg:text-2xl;
+}
+
+.project-content h5,
+.journal-content h5 {
+  @apply font-serif text-base font-semibold text-green-900 mb-3 mt-5 first:mt-0 leading-tight sm:text-lg lg:text-xl;
+}
+
+.project-content h6,
+.journal-content h6 {
+  @apply font-serif text-base font-medium text-green-900 mb-3 mt-5 first:mt-0 leading-tight sm:text-base lg:text-lg;
+}

@@ -9,7 +9,7 @@ params:
 
 I'm Ralph, a garden and planting designer. After years as a jazz vibraphonist, I now help clients achieve gardens which feel like they've always belonged to their house and the landscape, through connected, concept-driven design.
 
-{{< image src="/images/ralph.jpeg" alt="Ralph Wyld, Garden Designer" caption="Ralph Wyld, Garden Designer" height="60vh" position="center" class="rounded-sm shadow-lg" maxWidth="xl">}}
+{{< image src="/images/ralph.jpeg" alt="Ralph Wyld, Garden Designer" caption="Ralph Wyld, Garden Designer" height="60vh" position="center" class="rounded-sm shadow-lg" maxWidth="xl" background="true">}}
 
 Jazz has taught me that the most creative work emerges from embracing restrictions - whether that's a chord progression or the unique conditions of a site. I bring this same approach to garden design, starting with conversations about your story, research into local history and ecology, and careful observation of your home's architecture and interiors.
 

@@ -4,5 +4,8 @@
   },
   "tailwindCSS.includeLanguages": {
     "html": "html"
-  }
+  },
+  "prettier.requireConfig": true,
+  "prettier.resolveGlobalModules": false,
+  "prettier.prettierPath": "./node_modules/prettier"
 }
