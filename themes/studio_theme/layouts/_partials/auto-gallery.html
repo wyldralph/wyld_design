@@ -147,5 +147,33 @@
       }
     }
   });
+
+  // Touch/swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const minSwipeDistance = 50;
+
+  document.getElementById('lightbox').addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+
+  document.getElementById('lightbox').addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, false);
+
+  function handleSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        // Swipe right - go to previous image
+        prevImage();
+      } else {
+        // Swipe left - go to next image
+        nextImage();
+      }
+    }
+  }
 </script>
 {{ end }}
