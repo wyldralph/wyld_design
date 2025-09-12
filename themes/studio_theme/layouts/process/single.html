@@ -1,103 +1,14 @@
 {{ define "main" }}
-<section class="mb-12">
-  <div class="py-12">
-    <h1 class="font-serif text-2xl font-bold text-green-900 sm:text-4xl md:text-6xl">{{ .Title }}</h1>
-    <div class="container mx-auto max-w-[900px]">
-      {{ if .Params.summary }}
-      <p class="mt-4 font-sans text-lg font-semibold leading-relaxed text-gray-800 sm:mt-8 sm:text-xl">{{ .Params.summary }}</p>
-      {{ end }}
+  <section class="mb-12">
+    <div class="space-y-12">
+      <h1 class="font-serif text-2xl text-green-900 sm:text-4xl md:text-6xl">{{ .Title }}</h1>
+        {{ if .Content }}
+          <div class="space-y-12 font-serif text-2xl leading-10 text-zinc-800">{{ .Content }}</div>
+          {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+        {{ end }}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-{{ if eq .Title "Garden Design" }}
-<section class="mb-12 sm:mb-24">
-  <div class="container mx-auto max-w-[900px] space-y-12">
-    <h2 class="py-8 font-serif text-xl text-green-900 sm:py-12 sm:text-2xl md:text-3xl">The process</h2>
-    <p class="text-lg">Every garden is different, and my process is tailored to your needs. However a typical full-garden redesign usually works as follows:</p>
 
-    <div class="process-steps-container">
-      <ol>
-        <li>We'll discuss your project over the phone, so I can find out more about what you're looking for, what your garden is like now, and practical considerations like time-frames and budget.</li>
-        <li>If we're a good fit, we'll arrange for me to come and meet you, and see the garden. At this point I'll take a brief, so I understand the scope of the project, as well as getting to know you and your style. I'll send you a detailed Project Proposal for your consideration, including a breakdown of my fees, and my Terms of Engagement.</li>
-        <li>We organise a survey of the garden. Depending on the scale and complexity of the space, this might be completed by me, or by a trusted third-party. Either way, I also make observations about the site including aspect, light, drainage, and soil characteristics.</li>
-        <li>The creative work begins, and I produce you a concept design. This includes mood-boards and a plan for the garden, showing the proposed layout and style. Optionally, I can produce stunning 3D visualisations which really capture the feel of the proposed space. With your feedback, we make some small revisions, before you sign-off on the design.</li>
-        <li>With the concept design complete, I create detailed technical documentation including a Masterplan. This contains all the information landscapers need to build your garden with precision, and ensure there are no costly mistakes. In addition, a Bill of Quantities and associated documents will make for a smooth and fair tendering process with landscapers. If the project calls for it, lighting and irrigation plans can also be produced.</li>
-        <li>Once a landscaper has been contracted, and you're ready to start, the garden can be built. I'm available throughout this process to advise and assist, and answer any questions which arise over the design.</li>
-        <li>After the hard landscaping has been completed, the planting can take place. I draw up a planting plan and accompanying mood-board, so you can get an impression of the character and style. I can source the plants from reliable trade nurseries, and plant them, giving them the best introduction to their new conditions.</li>
-        <li>My input doesn't end with the completion of the build, as I help to ensure the garden establishes well, and guide maintenance efforts.</li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-{{ else if eq .Title "Planting Design" }}
-<section class="mb-12 sm:mb-24">
-  <div class="container mx-auto max-w-[900px] space-y-12">
-    <p class="text-lg">Specialized planting design service focusing on creating beautiful, sustainable plant combinations that thrive in your specific garden conditions.</p>
-    <p class="text-lg">Every garden is different, and my process is tailored to your needs. However a typical planting design usually works as follows:</p>
-
-    <div class="process-steps-container">
-      <ol>
-        <li>We'll discuss your project over the phone, so I can find out more about what you're looking for, how I can help develop your planting scheme, and practical considerations like time-frames and budget.</li>
-        <li>If we're a good fit, we'll arrange for me to come and meet you, and see the areas to be planted. At this point I'll take a brief, so I understand the scope of the project, as well as getting to know you and your style. I'll send you a detailed Project Proposal for your consideration, including a breakdown of my fees, and my Terms of Engagement.</li>
-        <li>We organise a survey of the planting areas, including important horticultural observations regarding aspect, light, drainage, and soil characteristics. This will ensure the planting scheme is designed to thrive in your unique space, and has the best chance of establishing successfully. If you have existing plants you're keeping, or would like to move, I'll also identify and locate them.</li>
-        <li>I create a mood-board and planting plan, showing you the style and character of the proposed planting scheme. This will allow me to draw up precise plant lists used to order from nurseries. I can source the plants from my network of reliable trade growers, and plant them for you if you would like.</li>
-        <li>To ensure the plants establish effectively, I will provide a maintenance schedule which you (or a gardener) can use to ensure you have happy, healthy plants. I can continue to visit the garden and consult as the scheme develops over time.</li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-{{ else if eq .Title "Design Consultation" }}
-<section class="mb-12 sm:mb-24">
-  <div class="container mx-auto max-w-[900px] space-y-12">
-    <p class="text-lg">Get expert advice on your garden design with a personalized consultation session.</p>
-    <p class="text-lg">Perfect if you're overwhelmed by possibilities, want to tackle improvements yourself, or need professional advice before committing to major changes. Includes a detailed written report with recommendations and next steps tailored to your space and budget.</p>
-  </div>
-</section>
-
-{{ else }} {{ if .Content }}
-<section class="mb-12 sm:mb-24">
-  <div class="container mx-auto max-w-[900px] space-y-12">
-    <div class="prose-lg prose max-w-none space-y-12 text-lg [&>h3]:font-serif [&>h3]:text-xl [&>h3]:text-green-900 sm:[&>h3]:text-2xl md:[&>h3]:text-3xl [&>p]:text-lg">{{ .Content }}</div>
-  </div>
-</section>
-{{ end }} {{ end }}
-
-<!-- Related Portfolio Projects -->
-{{ $currentProcess := .Title }} {{ $relatedProjects := slice }} {{ range site.Pages }} {{ if eq .Type "portfolio" }} {{ if or (in .Params.tags $currentProcess) (in .Params.process_provided $currentProcess) }} {{ $relatedProjects = $relatedProjects | append . }} {{ end }} {{ end }} {{ end }} {{ if gt (len $relatedProjects) 0 }}
-<section class="mb-12 sm:mb-24">
-  <div class="container mx-auto max-w-[900px] space-y-12">
-    <div class="space-y-6">
-      <h2 class="font-serif text-xl text-green-900 sm:text-2xl md:text-3xl">Related Projects</h2>
-      <p class="text-lg text-gray-800">See how we've applied {{ .Title | lower }} in our portfolio.</p>
-    </div>
-
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {{ range $project := $relatedProjects }}
-      <article class="group overflow-hidden rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-900/15">
-        <a href="{{ $project.Permalink }}" class="block">
-          <div class="overflow-hidden">
-            {{ if $project.Params.featured_image }}
-            <img src="{{ $project.Params.featured_image }}" alt="{{ $project.Title }}" class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-            {{ else }}
-            <img src="/images/verbena.jpeg" alt="{{ $project.Title }}" class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-            {{ end }}
-          </div>
-
-          <div class="p-4">
-            <h3 class="mb-2 font-serif text-lg font-semibold text-green-900">{{ $project.Title }}</h3>
-            {{ if $project.Params.location }}
-            <p class="text-sm text-gray-700">{{ $project.Params.location }}</p>
-            {{ end }} {{ if $project.Summary }}
-            <p class="mt-2 line-clamp-2 text-sm text-gray-700">{{ $project.Summary }}</p>
-            {{ end }}
-          </div>
-        </a>
-      </article>
-      {{ end }}
-    </div>
-  </div>
-</section>
-{{ end }} {{ partial "touch.html" . }} {{ end }}
+{{ end }}

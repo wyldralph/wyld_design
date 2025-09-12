@@ -37,14 +37,11 @@
   <!-- Lightbox -->
   <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-4">
     <div class="relative flex max-h-full max-w-full items-center justify-center">
-      <img
-        id="lightbox-image"
-        src=""
-        alt="Gallery image"
-        class="max-h-[90vh] max-w-[90vw] object-contain transition-opacity duration-200 ease-out select-none"
-        draggable="false"
-        oncontextmenu="return false"
-      />
+      <div id="image-container" class="relative max-h-[90vh] max-w-[90vw] overflow-hidden">
+        <div id="image-slider" class="flex transition-transform duration-300 ease-out">
+          <!-- Images will be dynamically populated here -->
+        </div>
+      </div>
       <button
         onclick="closeLightbox()"
         class="absolute -top-4 -right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white text-black hover:bg-gray-200"
@@ -66,6 +63,13 @@
     >
       <span class="text-2xl font-bold">&#8250;</span>
     </button>
+    <!-- Photo counter for desktop -->
+    <div
+      id="photo-counter"
+      class="fixed bottom-4 left-1/2 hidden -translate-x-1/2 rounded-lg bg-black/70 px-3 py-2 text-sm font-medium text-white md:block"
+    >
+      <span id="current-photo">1</span> / <span id="total-photos">1</span>
+    </div>
   </div>
 
   <style>
@@ -88,11 +92,14 @@
 <script>
   const galleryImages = [{{ range $images }}"{{ printf "/%simages/%s" $projectPath .Name }}",{{ end }}];
   let currentImageIndex = 0;
-
+  let isDragging = false;
+  let startX = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
 
   // Disable right-click on images specifically
   document.addEventListener('contextmenu', function(e) {
-    if (e.target.classList.contains('gallery-image') || e.target.id === 'lightbox-image') {
+    if (e.target.classList.contains('gallery-image') || e.target.tagName === 'IMG') {
       e.preventDefault();
       return false;
     }
@@ -100,7 +107,7 @@
 
   // Disable drag and drop on images
   document.addEventListener('dragstart', function(e) {
-    if (e.target.classList.contains('gallery-image') || e.target.id === 'lightbox-image') {
+    if (e.target.classList.contains('gallery-image') || e.target.tagName === 'IMG') {
       e.preventDefault();
       return false;
     }
@@ -108,7 +115,12 @@
 
   function openLightbox(index) {
     currentImageIndex = index;
-    document.getElementById('lightbox-image').src = galleryImages[index];
+    setupImageSlider();
+    // Use setTimeout to ensure DOM is updated before positioning
+    setTimeout(() => {
+      updateSliderPosition(false);
+      updatePhotoCounter();
+    }, 0);
     document.getElementById('lightbox').classList.remove('hidden');
     document.getElementById('lightbox').classList.add('flex');
     document.body.style.overflow = 'hidden';
@@ -120,24 +132,52 @@
     document.body.style.overflow = 'auto';
   }
 
+  function setupImageSlider() {
+    const slider = document.getElementById('image-slider');
+    slider.innerHTML = '';
+
+    galleryImages.forEach((imageSrc, index) => {
+      const imgElement = document.createElement('img');
+      imgElement.src = imageSrc;
+      imgElement.alt = 'Gallery image';
+      imgElement.className = 'max-h-[90vh] max-w-[90vw] object-contain select-none flex-shrink-0';
+      imgElement.style.width = '100%';
+      imgElement.draggable = false;
+      imgElement.oncontextmenu = () => false;
+      slider.appendChild(imgElement);
+    });
+  }
+
+  function updateSliderPosition(animate = true) {
+    const slider = document.getElementById('image-slider');
+    const container = document.getElementById('image-container');
+    const containerWidth = container.offsetWidth;
+    const targetTranslate = -currentImageIndex * containerWidth;
+
+    slider.style.transition = animate ? 'transform 0.3s ease-out' : 'none';
+    slider.style.transform = `translateX(${targetTranslate}px)`;
+    prevTranslate = targetTranslate;
+    currentTranslate = targetTranslate;
+    updatePhotoCounter();
+  }
+
+  function updatePhotoCounter() {
+    document.getElementById('current-photo').textContent = currentImageIndex + 1;
+    document.getElementById('total-photos').textContent = galleryImages.length;
+  }
+
   function nextImage() {
-    const img = document.getElementById('lightbox-image');
-    img.style.opacity = '0';
-    setTimeout(() => {
-      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-      img.src = galleryImages[currentImageIndex];
-      img.style.opacity = '1';
-    }, 100);
+    if (currentImageIndex < galleryImages.length - 1) {
+      currentImageIndex++;
+      updateSliderPosition();
+    }
   }
 
   function prevImage() {
-    const img = document.getElementById('lightbox-image');
-    img.style.opacity = '0';
-    setTimeout(() => {
-      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-      img.src = galleryImages[currentImageIndex];
-      img.style.opacity = '1';
-    }, 100);
+    if (currentImageIndex > 0) {
+      currentImageIndex--;
+      updateSliderPosition();
+    }
   }
 
   document.getElementById('lightbox').addEventListener('click', function(e) {
@@ -158,56 +198,74 @@
     }
   });
 
-  // Touch/swipe support for mobile with smooth natural scrolling
-  let touchStartX = 0;
-  let touchEndX = 0;
-  let touchStartY = 0;
-  let touchEndY = 0;
-  let isSwipeInProgress = false;
-  const minSwipeDistance = 50;
-  const maxVerticalDistance = 100; // Prevent accidental vertical swipes
+  // Touch/drag support with real-time visual feedback
+  const container = document.getElementById('image-container');
+  const slider = document.getElementById('image-slider');
 
-  document.getElementById('lightbox').addEventListener('touchstart', function(e) {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
-    isSwipeInProgress = false;
-  }, { passive: true });
+  // Touch events
+  container.addEventListener('touchstart', handleTouchStart, { passive: false });
+  container.addEventListener('touchmove', handleTouchMove, { passive: false });
+  container.addEventListener('touchend', handleTouchEnd, { passive: false });
 
-  document.getElementById('lightbox').addEventListener('touchmove', function(e) {
-    // Prevent default only if it's a horizontal swipe
-    const currentX = e.changedTouches[0].screenX;
-    const currentY = e.changedTouches[0].screenY;
-    const diffX = Math.abs(currentX - touchStartX);
-    const diffY = Math.abs(currentY - touchStartY);
+  // Mouse events for desktop testing
+  container.addEventListener('mousedown', handleMouseStart);
+  container.addEventListener('mousemove', handleMouseMove);
+  container.addEventListener('mouseup', handleMouseEnd);
+  container.addEventListener('mouseleave', handleMouseEnd);
 
-    if (diffX > diffY && diffX > 20) {
-      e.preventDefault(); // Prevent default scrolling for horizontal swipes
-      isSwipeInProgress = true;
-    }
-  }, { passive: false });
+  function getPositionX(event) {
+    return event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
+  }
 
-  document.getElementById('lightbox').addEventListener('touchend', function(e) {
-    if (!isSwipeInProgress) return;
+  function handleStart(event) {
+    isDragging = true;
+    startX = getPositionX(event) - currentTranslate;
+    document.getElementById('image-slider').style.transition = 'none';
+  }
 
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
-    handleSwipe();
-  }, { passive: true });
+  function handleMove(event) {
+    if (!isDragging) return;
 
-  function handleSwipe() {
-    const swipeDistance = touchEndX - touchStartX;
-    const verticalDistance = Math.abs(touchEndY - touchStartY);
+    event.preventDefault();
+    const currentPosition = getPositionX(event);
+    currentTranslate = currentPosition - startX;
 
-    // Only process horizontal swipes that aren't too vertical
-    if (Math.abs(swipeDistance) > minSwipeDistance && verticalDistance < maxVerticalDistance) {
-      if (swipeDistance > 0) {
-        // Swipe right - go to previous image
-        prevImage();
-      } else {
-        // Swipe left - go to next image
-        nextImage();
+    // Limit dragging to prevent going beyond first/last image
+    const container = document.getElementById('image-container');
+    const containerWidth = container.offsetWidth;
+    const maxTranslate = 0;
+    const minTranslate = -(galleryImages.length - 1) * containerWidth;
+
+    currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, currentTranslate));
+
+    document.getElementById('image-slider').style.transform = `translateX(${currentTranslate}px)`;
+  }
+
+  function handleEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+
+    const movedBy = currentTranslate - prevTranslate;
+    const container = document.getElementById('image-container');
+    const containerWidth = container.offsetWidth;
+
+    // Determine if we should snap to next/previous image
+    if (Math.abs(movedBy) > containerWidth * 0.2) {
+      if (movedBy < 0 && currentImageIndex < galleryImages.length - 1) {
+        currentImageIndex++;
+      } else if (movedBy > 0 && currentImageIndex > 0) {
+        currentImageIndex--;
       }
     }
+
+    updateSliderPosition(true);
   }
+
+  function handleTouchStart(event) { handleStart(event); }
+  function handleTouchMove(event) { handleMove(event); }
+  function handleTouchEnd(event) { handleEnd(); }
+  function handleMouseStart(event) { handleStart(event); }
+  function handleMouseMove(event) { handleMove(event); }
+  function handleMouseEnd(event) { handleEnd(); }
 </script>
 {{ end }}

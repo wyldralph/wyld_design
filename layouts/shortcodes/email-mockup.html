@@ -1,7 +1,16 @@
-{{/* Email Mockup Shortcode Creates a styled email mockup that opens a pre-filled mailto link. Usage: {{< email-mockup subject="Garden Design Enquiry" >}} Hi Ralph, We're just getting settled into a new house... {{< /email-mockup >}} Parameters: - subject: Email subject line (required) - Inner content: Email body text (will be converted to markdown) */}} {{- $subject := .Get "subject" | default "Garden Design Enquiry" -}} {{- $body := .Inner | plainify | urlquery -}} {{- $subjectEncoded := $subject | urlquery -}}
-<a href="mailto:hello@wylddesign.studio?subject=Garden%20Design%20Enquiry">
-  <div class="w-128 space-y-6 rounded-xl border border-gray-900/10 bg-white p-12 leading-6 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-900/15">
-    <p class="border-b border-gray-300 pb-6 font-sans text-base font-bold">Re: {{ $subject }}</p>
-    <div class="space-y-4 font-sans text-base leading-6">{{ .Inner | markdownify }}</div>
-  </div>
-</a>
+{{/* Email Mockup Shortcode Creates a styled email mockup that opens a pre-filled mailto link. Usage: {{< email-mockup subject="Garden Design Enquiry" >}}
+Hi Ralph, We're just getting settled into a new house... {{< /email-mockup >}} Parameters: - subject: Email subject line
+(required) - Inner content: Email body text (will be converted to markdown) */}}
+{{- $subject := .Get "subject" | default "Garden Design Enquiry" -}}
+{{- $body := .Inner | plainify | urlquery -}}
+{{- $subjectEncoded := $subject | urlquery -}}
+<div class="my-8 w-full rounded-sm bg-gradient-to-br from-amber-700/20 via-amber-700/10 to-stone-200/50 py-8">
+  <a href="mailto:hello@wylddesign.studio?subject=Garden%20Design%20Enquiry">
+    <div
+      class="m-auto max-w-128 space-y-6 rounded-sm border border-gray-900/10 bg-white p-12 leading-6 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-900/15"
+    >
+      <p class="border-b border-gray-300 pb-6 font-sans text-base font-bold">Re: {{ $subject }}</p>
+      <div class="space-y-4 font-sans text-base leading-6">{{ .Inner | markdownify }}</div>
+    </div>
+  </a>
+</div>

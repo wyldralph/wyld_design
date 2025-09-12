@@ -22,7 +22,7 @@ Screening is a simple principle: block the neighbours' view of you, or vice vers
 
 You might also be surprised at how translucent screening can be, and still give you the desired effect. The fluttering leaves of a birch or swaying blades of Miscanthus grass, for example, give the feeling of seclusion, whilst allowing through lovely dappled light.
 
-{{< image src="https://images.squarespace-cdn.com/content/v1/66cf3b3ffe781e11b5924564/94d80961-aa3e-448a-a961-50def78de4c5/IMG_4971.jpeg" alt="Tree screening for garden privacy" caption="The right choice of tree can screen out neighbours, give you privacy, and also allowed through a beautiful dappled light" height="400px" align="center" class="rounded-sm shadow-lg" >}}
+![A tree with delicate foliage allows sunlight through](/images/verbena.jpeg "The right choice of tree can screen out neighbours, give you privacy, and also allowed through a beautiful dappled light")
 
 If you need a larger area of screening, pleached trees have a similar effect to a tall hedge, but with a much smaller footprint. There are many options, including evergreens such as Portuguese Laurel or the overused Red Robin, but Beech and Hornbeam are fantastic alternatives which turn a beautiful bronze in Autumn and hold their leaves over winter.
 

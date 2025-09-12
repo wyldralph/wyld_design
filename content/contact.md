@@ -23,6 +23,4 @@ We're hoping to create something that feels rooted in this landscape rather than
 Would you be available for a conversation about the project?
 
 Kind regards,
-
-[Client names]
 {{< /email-mockup >}}

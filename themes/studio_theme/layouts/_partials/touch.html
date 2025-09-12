@@ -1,11 +1,16 @@
 {{ $nextMonth := now.AddDate 0 1 0 | time.Format "January" }}
 
-<section class="mb-12 py-12">
+
+<section class="mb-12">
   <div class="container">
     <h2 class="mb-6 font-serif text-2xl text-green-900 sm:text-3xl md:text-4xl">Ready to transform your garden?</h2>
     <p class="mb-8 font-serif text-2xl font-medium">I have availability to start projects in {{ $nextMonth }}.</p>
     <p class="mb-8 font-serif text-2xl font-medium">
-      <a href="/contact" class="decoration-3 underline-offset-3 underline decoration-orange-500/50 transition-all duration-300 hover:decoration-orange-500 focus:decoration-orange-500/50 motion-reduce:transition-none">Get in touch</a>
+      <a
+        href="/contact"
+        class="underline decoration-orange-500/50 decoration-3 underline-offset-3 transition-all duration-300 hover:decoration-orange-500 focus:decoration-orange-500/50 motion-reduce:transition-none"
+        >Get in touch</a
+      >
       to discuss how we can work together on your garden's story.
     </p>
   </div>

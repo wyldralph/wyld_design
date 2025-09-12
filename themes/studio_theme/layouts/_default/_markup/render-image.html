@@ -1,0 +1,26 @@
+<div class="my-16 w-full rounded-sm bg-gradient-to-br from-amber-700/20 via-amber-700/10 to-stone-200/50 py-8">
+  {{ if .Title }}
+    <figure class="mx-auto max-w-9/10 rounded-sm" style="width: fit-content;">
+      <img
+        class="block rounded-sm border border-gray-900/10 shadow-lg shadow-gray-900/10"
+        src="{{ .Destination | safeURL }}"
+        alt="{{ .Text }}"
+        style="width: 100%;"
+      />
+      <figcaption
+        class="mt-4 text-base text-gray-600 italic sm:text-lg"
+        style="width: 100%; word-wrap: break-word; overflow-wrap: break-word;"
+      >
+        {{ .Title }}
+      </figcaption>
+    </figure>
+  {{ else }}
+    <div class="mx-auto max-w-9/10">
+      <img
+        class="rounded-sm border border-gray-900/10 shadow-lg shadow-gray-900/10"
+        src="{{ .Destination | safeURL }}"
+        alt="{{ .Text }}"
+      />
+    </div>
+  {{ end }}
+</div>

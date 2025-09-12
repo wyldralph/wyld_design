@@ -1,0 +1,10 @@
+{{- $title := .Get "title" -}}
+{{- $content := .Inner -}}
+
+
+<div class="my-6 rounded-sm border border-stone-300/40 bg-stone-200/50 p-6">
+  {{ if $title }}
+    <h4 class="mb-3 font-medium text-stone-700">{{ $title | markdownify }}</h4>
+  {{ end }}
+  <div class="text-stone-600">{{ $content | markdownify }}</div>
+</div>
