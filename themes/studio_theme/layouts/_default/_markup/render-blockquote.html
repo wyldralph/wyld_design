@@ -1,11 +1,13 @@
 {{/* Render hook for blockquotes with special styling for home page */}}
 {{ if eq .Page.Kind "home" }}
   {{/* Home page blockquote styling */}}
-  <blockquote
-    class="my-12 bg-gradient-to-br from-amber-700/20 via-amber-700/10 to-stone-200/50 px-8 py-8 font-serif text-2xl leading-relaxed text-stone-700 italic shadow-sm"
-  >
-    {{ .Text }}
-  </blockquote>
+  <div class="rounded-sm bg-gradient-to-br from-amber-700/20 via-amber-700/10 to-stone-200/50 p-4">
+    <blockquote
+      class="m-auto my-12 w-lg rounded-sm bg-white px-8 py-8 font-serif text-2xl leading-relaxed text-stone-700 italic shadow-sm"
+    >
+      {{ .Text }}
+    </blockquote>
+  </div>
 {{ else }}
   {{/* Default blockquote styling for other pages */}}
   <blockquote class="my-8 border-l-4 border-gray-300 pl-6 text-gray-700 italic">
