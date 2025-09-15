@@ -1,0 +1,271 @@
+{{/* Auto Gallery Partial - Automatically creates a gallery from images in the project's images folder */}}
+{{ $projectPath := .Page.File.Dir }}
+{{ $imagesPath := printf "content/%simages" $projectPath }}
+{{ $imageFiles := slice }}
+{{ with readDir $imagesPath }}
+  {{ $imageFiles = . }}
+{{ end }}
+{{ $validExtensions := slice ".jpg" ".jpeg" ".png" ".gif" ".webp" ".JPG" ".JPEG" ".PNG" ".GIF" ".WEBP" }}
+{{ $images := slice }}
+{{ range $imageFiles }}
+  {{ if in $validExtensions (path.Ext .Name) }}
+    {{ $images = $images | append . }}
+  {{ end }}
+{{ end }}
+{{ if $images }}
+  <section class="mb-12 w-full">
+    <div class="grid gap-6 px-4 md:grid-cols-2 xl:grid-cols-3">
+      {{ range $index, $image := $images }}
+        <div
+          class="overflow-hidden rounded-sm border border-gray-900/10 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-900/15"
+        >
+          <img
+            src="{{ printf "/%simages/%s" $projectPath $image.Name }}"
+            alt="Project gallery image"
+            class="gallery-image h-72 w-full cursor-pointer object-cover select-none"
+            loading="lazy"
+            data-index="{{ $index }}"
+            onclick="openLightbox({{ $index }})"
+            draggable="false"
+            oncontextmenu="return false"
+          />
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-4">
+    <div class="relative flex max-h-full max-w-full items-center justify-center">
+      <div id="image-container" class="relative max-h-[90vh] max-w-[90vw] overflow-hidden">
+        <div id="image-slider" class="flex transition-transform duration-300 ease-out">
+          <!-- Images will be dynamically populated here -->
+        </div>
+      </div>
+      <button
+        onclick="closeLightbox()"
+        class="absolute -top-4 -right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white text-black hover:bg-gray-200"
+      >
+        <span class="text-xl font-bold">&times;</span>
+      </button>
+    </div>
+    <button
+      id="prev-btn"
+      onclick="prevImage()"
+      class="fixed top-1/2 left-4 z-10 hidden -translate-y-1/2 rounded-lg bg-white/90 px-6 py-4 text-black shadow-lg transition-all duration-200 hover:bg-white hover:shadow-xl md:block"
+    >
+      <span class="text-2xl font-bold">&#8249;</span>
+    </button>
+    <button
+      id="next-btn"
+      onclick="nextImage()"
+      class="fixed top-1/2 right-4 z-10 hidden -translate-y-1/2 rounded-lg bg-white/90 px-6 py-4 text-black shadow-lg transition-all duration-200 hover:bg-white hover:shadow-xl md:block"
+    >
+      <span class="text-2xl font-bold">&#8250;</span>
+    </button>
+    <!-- Photo counter for desktop -->
+    <div
+      id="photo-counter"
+      class="fixed bottom-4 left-1/2 hidden -translate-x-1/2 rounded-lg bg-black/70 px-3 py-2 text-sm font-medium text-white md:block"
+    >
+      <span id="current-photo">1</span> / <span id="total-photos">1</span>
+    </div>
+  </div>
+
+  <style>
+    /* Additional image protection */
+    .gallery-image,
+    #lightbox-image {
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+      pointer-events: auto;
+    }
+
+    /* Disable image context menu and selection */
+    .gallery-image::selection,
+    #lightbox-image::selection {
+      background: transparent;
+    }
+  </style>
+
+<script>
+  const galleryImages = [{{ range $images }}"{{ printf "/%simages/%s" $projectPath .Name }}",{{ end }}];
+  let currentImageIndex = 0;
+  let isDragging = false;
+  let startX = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+
+  // Disable right-click on images specifically
+  document.addEventListener('contextmenu', function(e) {
+    if (e.target.classList.contains('gallery-image') || e.target.tagName === 'IMG') {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Disable drag and drop on images
+  document.addEventListener('dragstart', function(e) {
+    if (e.target.classList.contains('gallery-image') || e.target.tagName === 'IMG') {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  function openLightbox(index) {
+    currentImageIndex = index;
+    setupImageSlider();
+    // Use setTimeout to ensure DOM is updated before positioning
+    setTimeout(() => {
+      updateSliderPosition(false);
+      updatePhotoCounter();
+    }, 0);
+    document.getElementById('lightbox').classList.remove('hidden');
+    document.getElementById('lightbox').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.add('hidden');
+    document.getElementById('lightbox').classList.remove('flex');
+    document.body.style.overflow = 'auto';
+  }
+
+  function setupImageSlider() {
+    const slider = document.getElementById('image-slider');
+    slider.innerHTML = '';
+
+    galleryImages.forEach((imageSrc, index) => {
+      const imgElement = document.createElement('img');
+      imgElement.src = imageSrc;
+      imgElement.alt = 'Gallery image';
+      imgElement.className = 'max-h-[90vh] max-w-[90vw] object-contain select-none flex-shrink-0';
+      imgElement.style.width = '100%';
+      imgElement.draggable = false;
+      imgElement.oncontextmenu = () => false;
+      slider.appendChild(imgElement);
+    });
+  }
+
+  function updateSliderPosition(animate = true) {
+    const slider = document.getElementById('image-slider');
+    const container = document.getElementById('image-container');
+    const containerWidth = container.offsetWidth;
+    const targetTranslate = -currentImageIndex * containerWidth;
+
+    slider.style.transition = animate ? 'transform 0.3s ease-out' : 'none';
+    slider.style.transform = `translateX(${targetTranslate}px)`;
+    prevTranslate = targetTranslate;
+    currentTranslate = targetTranslate;
+    updatePhotoCounter();
+  }
+
+  function updatePhotoCounter() {
+    document.getElementById('current-photo').textContent = currentImageIndex + 1;
+    document.getElementById('total-photos').textContent = galleryImages.length;
+  }
+
+  function nextImage() {
+    if (currentImageIndex < galleryImages.length - 1) {
+      currentImageIndex++;
+      updateSliderPosition();
+    }
+  }
+
+  function prevImage() {
+    if (currentImageIndex > 0) {
+      currentImageIndex--;
+      updateSliderPosition();
+    }
+  }
+
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lightbox').classList.contains('hidden')) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      } else if (e.key === 'ArrowLeft') {
+        prevImage();
+      }
+    }
+  });
+
+  // Touch/drag support with real-time visual feedback
+  const container = document.getElementById('image-container');
+  const slider = document.getElementById('image-slider');
+
+  // Touch events
+  container.addEventListener('touchstart', handleTouchStart, { passive: false });
+  container.addEventListener('touchmove', handleTouchMove, { passive: false });
+  container.addEventListener('touchend', handleTouchEnd, { passive: false });
+
+  // Mouse events for desktop testing
+  container.addEventListener('mousedown', handleMouseStart);
+  container.addEventListener('mousemove', handleMouseMove);
+  container.addEventListener('mouseup', handleMouseEnd);
+  container.addEventListener('mouseleave', handleMouseEnd);
+
+  function getPositionX(event) {
+    return event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
+  }
+
+  function handleStart(event) {
+    isDragging = true;
+    startX = getPositionX(event) - currentTranslate;
+    document.getElementById('image-slider').style.transition = 'none';
+  }
+
+  function handleMove(event) {
+    if (!isDragging) return;
+
+    event.preventDefault();
+    const currentPosition = getPositionX(event);
+    currentTranslate = currentPosition - startX;
+
+    // Limit dragging to prevent going beyond first/last image
+    const container = document.getElementById('image-container');
+    const containerWidth = container.offsetWidth;
+    const maxTranslate = 0;
+    const minTranslate = -(galleryImages.length - 1) * containerWidth;
+
+    currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, currentTranslate));
+
+    document.getElementById('image-slider').style.transform = `translateX(${currentTranslate}px)`;
+  }
+
+  function handleEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+
+    const movedBy = currentTranslate - prevTranslate;
+    const container = document.getElementById('image-container');
+    const containerWidth = container.offsetWidth;
+
+    // Determine if we should snap to next/previous image
+    if (Math.abs(movedBy) > containerWidth * 0.2) {
+      if (movedBy < 0 && currentImageIndex < galleryImages.length - 1) {
+        currentImageIndex++;
+      } else if (movedBy > 0 && currentImageIndex > 0) {
+        currentImageIndex--;
+      }
+    }
+
+    updateSliderPosition(true);
+  }
+
+  function handleTouchStart(event) { handleStart(event); }
+  function handleTouchMove(event) { handleMove(event); }
+  function handleTouchEnd(event) { handleEnd(); }
+  function handleMouseStart(event) { handleStart(event); }
+  function handleMouseMove(event) { handleMove(event); }
+  function handleMouseEnd(event) { handleEnd(); }
+</script>
+{{ end }}

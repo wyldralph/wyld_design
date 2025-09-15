@@ -30,10 +30,14 @@ featured: false # Set to true to make this portfolio item featured (larger size)
 
 <!-- Describe the challenges this garden presented -->
 
-## The Solution
+## Design Development
 
 <!-- Describe how you solved the challenges -->
 
-## The Result
+## The Transformation
 
 <!-- Describe the final outcome and client satisfaction -->
+
+## Behind the Scenes
+
+## The Team

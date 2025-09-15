@@ -9,13 +9,18 @@ params:
 
 I'm Ralph, a garden and planting designer. After years as a jazz vibraphonist, I now help clients achieve gardens which feel like they've always belonged to their house and the landscape, through connected, concept-driven design.
 
-{{< image src="/images/ralph.jpeg" alt="Ralph Wyld, Garden Designer" caption="Ralph Wyld, Garden Designer" height="60vh" position="center" class="rounded-sm shadow-lg" maxWidth="xl">}}
+<figure class="bg-gradient-to-br from-amber-700/20 via-amber-700/10 to-stone-200/50 rounded-sm my-8 py-8">
+<div class="max-w-lg h-auto mx-auto rounded-sm">
+<img src="/images/ralph.jpeg" class="rounded-sm border border-gray-900/10 shadow-lg shadow-gray-900/10" alt="Ralph Wyld, Garden Designer">
+<figcaption class="mt-4 text-base text-gray-600 italic sm:text-lg">Ralph Wyld, Garden Designer</figcaption>
+<div>
+</figure>
 
 Jazz has taught me that the most creative work emerges from embracing restrictions - whether that's a chord progression or the unique conditions of a site. I bring this same approach to garden design, starting with conversations about your story, research into local history and ecology, and careful observation of your home's architecture and interiors.
 
 From this cultural and environmental detective work, I weave together designs that feel both deeply personal and naturally rooted. My passion for the environment drives every decision: I see each garden as an opportunity to create habitats, support local wildlife, and restore the vital connection between homes and the landscapes that surround them.
 
-{{< image src="/images/screen-concept.jpeg" alt="Concept development for garden screening" caption="Concept development for garden screening based on design by Charles Rennie Mackintosh" height="60vh" position="left" class="rounded-sm shadow-lg" align="center">}}
+![Concept development for garden screening, with Charles Rennie Mackintosh chairs alongside construction drawings for a bespoke screen](/images/screen-concept.jpeg "Concept development for garden screening based on design by Charles Rennie Mackintosh")
 
 <div class="text-xl space-y-8 md:columns-2 gap-12">
 

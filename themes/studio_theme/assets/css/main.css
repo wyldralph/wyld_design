@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/forms";
 @source "hugo_stats.json";
 
 @theme {
@@ -120,26 +121,33 @@
   font-display: swap;
 }
 
-/* Process Steps Component */
-.process-steps-container ol {
-  @apply flex list-none flex-col space-y-8 p-0;
-  counter-reset: step-counter;
+/* Header Styles for Project and Journal Content Only */
+.project-content h1,
+.journal-content h1 {
+  @apply mt-16 mb-6 font-serif text-3xl leading-tight font-bold text-green-900 first:mt-0 sm:text-4xl lg:text-5xl;
 }
 
-.process-steps-container ol li {
-  @apply relative pl-12 text-lg leading-relaxed sm:grid sm:grid-cols-[3rem_1fr] sm:items-start sm:gap-6 sm:pl-0;
-  counter-increment: step-counter;
+.project-content h2,
+.journal-content h2 {
+  @apply mt-16 mb-5 font-serif text-2xl leading-tight font-bold text-green-900 first:mt-0 sm:text-3xl lg:text-4xl;
 }
 
-.process-steps-container ol li::before {
-  content: counter(step-counter);
-  @apply absolute left-0 top-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-green-900 font-serif text-sm font-bold text-white shadow-lg sm:static sm:h-10 sm:w-10 sm:text-base;
+.project-content h3,
+.journal-content h3 {
+  @apply mt-10 mb-4 font-serif text-xl leading-tight font-semibold text-green-900 first:mt-0 sm:text-2xl lg:text-3xl;
 }
 
-.process-steps-container ol li > * {
-  @apply sm:col-start-2;
+.project-content h4,
+.journal-content h4 {
+  @apply mt-6 mb-4 font-serif text-lg leading-tight font-semibold text-green-900 first:mt-0 sm:text-xl lg:text-2xl;
 }
 
-.process-steps-container ol li::before {
-  @apply sm:col-start-1 sm:row-start-1;
+.project-content h5,
+.journal-content h5 {
+  @apply mt-5 mb-3 font-serif text-base leading-tight font-semibold text-green-900 first:mt-0 sm:text-lg lg:text-xl;
+}
+
+.project-content h6,
+.journal-content h6 {
+  @apply mt-5 mb-3 font-serif text-base leading-tight font-medium text-green-900 first:mt-0 sm:text-base lg:text-lg;
 }

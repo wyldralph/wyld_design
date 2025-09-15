@@ -1,5 +1,43 @@
 {{ define "main" }}
-<section class="mb-24 max-w-4xl">
-  <div class="space-y-24 font-serif text-2xl leading-10 text-zinc-800">{{ .Content }} {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
-</section>
+  <!-- Full-width hero sections -->
+  <div class="mb-12 grid w-full grid-cols-1 gap-6 md:grid-cols-2">
+    <!-- Blockquote Section 
+    <div class="flex items-center justify-center px-8 py-12">
+      <div class="rounded-sm bg-gradient-to-br from-amber-700/20 via-amber-700/10 to-stone-200/50 p-4">
+        <blockquote
+          class="m-auto mx-6 my-6 w-lg rounded-sm bg-white px-8 py-8 font-serif text-2xl leading-relaxed text-stone-700 italic shadow-sm"
+        >
+          "The garden is a bridge between us, our homes, and the world around us. It should reflect both the character
+          of what's within, and without."
+        </blockquote>
+      </div>
+    </div> 
+  -->
+
+    <!-- Text Section -->
+    <div class="flex flex-col gap-6">
+      <h1 class="font-serif text-4xl text-green-900 capitalize md:text-7xl/20">
+        Designing gardens that <span class="text-amber-600">belong</span>
+      </h1>
+      <p class="py-8 font-serif text-2xl leading-relaxed text-stone-800">
+        Ralph Wyld is a qualified garden designer with a diploma from the Royal Horticultural Society, creating bespoke
+        gardens that connect to the stories of their owners and the surorunding landscape.
+      </p>
+    </div>
+
+    <!-- Image Section -->
+    <div
+      class="h-96 self-start overflow-hidden rounded-sm bg-gradient-to-br from-amber-700/20 via-amber-700/10 to-stone-200/50 p-12"
+    >
+      <img src="images/verbena.jpeg" class="h-full w-full rounded-sm object-cover" />
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="mb-24 max-w-4xl">
+    <div class="space-y-24 font-serif text-2xl leading-10 text-stone-800">
+      {{ .Content }}
+      {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    </div>
+  </section>
 {{ end }}

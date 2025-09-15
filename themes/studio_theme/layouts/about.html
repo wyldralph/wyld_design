@@ -1,12 +1,11 @@
 {{ define "main" }}
-
-<section class="mb-12 max-w-4xl">
-  <div class="space-y-12">
-    <h1 class="font-serif text-2xl text-green-900 sm:text-4xl md:text-6xl">{{ .Title }}</h1>
-    {{ if .Content }}
-    <div class="prose prose-lg space-y-12 font-serif text-2xl leading-10 text-zinc-800">{{ .Content }}</div>
-    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }} {{ end }}
-  </div>
-</section>
-
-{{ partial "touch.html" . }} {{ end }}
+  <section class="mb-12 max-w-4xl">
+    <div class="space-y-12">
+      <h1 class="font-serif text-2xl text-green-900 sm:text-4xl md:text-6xl">{{ .Title }}</h1>
+      {{ if .Content }}
+        <div class="prose prose-lg space-y-12 font-serif text-2xl leading-10 text-zinc-800">{{ .Content }}</div>
+        {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

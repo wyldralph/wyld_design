@@ -1,0 +1,78 @@
+{{- $items := split .Inner "\n" -}}
+{{- $cleanItems := slice -}}
+{{- range $items -}}
+  {{- $trimmed := trim . "- " -}}
+  {{- if ne $trimmed "" -}}
+    {{- $cleanItems = $cleanItems | append $trimmed -}}
+  {{- end -}}
+{{- end -}}
+
+
+<div class="my-6">
+  <div class="relative">
+    {{- range $index, $item := $cleanItems -}}
+      {{- $parts := split $item " - " -}}
+      {{- $task := index $parts 0 -}}
+      {{- $date := index $parts 1 -}}
+      {{- $isCompleted := false -}}
+      {{- if or (eq $date "present") (eq $date "Present") -}}
+        {{- $isCompleted = false -}}
+      {{- else -}}
+        {{- $parsedDate := "" -}}
+        {{- if findRE "\\d{4}" $date -}}
+          {{- $year := index (findRE "\\d{4}" $date) 0 -}}
+          {{- $yearInt := int $year -}}
+          {{- $currentYear := now.Year -}}
+          {{- if lt $yearInt $currentYear -}}
+            {{- $isCompleted = true -}}
+          {{- else if eq $yearInt $currentYear -}}
+            {{- if findRE "(?i)(january|february|march|april|may|june|july)" $date -}}
+              {{- $isCompleted = true -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $isLast := eq $index (sub (len $cleanItems) 1) -}}
+
+
+      <div class="pb-6{{ if $isLast }}pb-0{{ end }} relative flex items-start">
+        <!-- Timeline line -->
+        {{ if not $isLast }}
+          <div
+            class="{{ if $isCompleted }}
+              bg-green-900
+            {{ else }}
+              bg-stone-300
+            {{ end }} absolute top-5 left-[7px] h-full w-0.5"
+          ></div>
+        {{ end }}
+
+
+        <!-- Timeline dot -->
+        <div
+          class="{{ if $isCompleted }}
+            bg-green-900
+          {{ else }}
+            bg-stone-400
+          {{ end }} relative z-10 mt-2 mr-4 flex h-4 w-4 items-center justify-center rounded-full"
+        >
+          {{ if $isCompleted }}
+            <div class="h-2 w-2 rounded-full bg-white"></div>
+          {{ end }}
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1">
+          <div class="flex items-baseline justify-between">
+            <span class="{{ if $isCompleted }}text-green-900{{ else }}text-stone-700{{ end }} font-medium"
+              >{{ $task }}</span
+            >
+            <span class="{{ if $isCompleted }}text-green-900{{ else }}text-stone-500{{ end }} ml-4 text-right text-base"
+              >{{ $date }}</span
+            >
+          </div>
+        </div>
+      </div>
+    {{- end -}}
+  </div>
+</div>

@@ -1,203 +1,51 @@
 {{ define "main" }}
-<article>
-  <!-- Hero Section -->
-  <section class="mb-12">
-    <div class="grid gap-8 py-12 sm:grid-cols-12">
-      <div class="col-span-6">
-        {{ if .Params.featured_image }}
-        <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" class="max-h-[700px] w-full rounded-lg object-cover" loading="lazy" />
-        {{ else }}
-        <img src="/images/verbena.jpeg" alt="{{ .Title }}" class="max-h-[700px] w-full rounded-lg object-cover" loading="lazy" />
-        {{ end }}
-      </div>
-      <div class="col-span-6 flex flex-col justify-end">
-        <h1 class="font-serif text-2xl font-bold text-green-900 sm:text-4xl md:text-6xl">{{ .Title }}</h1>
-        {{ if .Params.summary }}
-        <p class="mt-4 font-serif text-xl text-gray-800 sm:text-2xl">{{ .Params.summary }}</p>
-        {{ end }}
-
-        <!-- Project Details -->
-        <div class="mt-8 space-y-4">
-          {{ if .Params.client }}
-          <div class="flex items-center space-x-2">
-            <span class="font-semibold text-green-900">Client:</span>
-            <span>{{ .Params.client }}</span>
-          </div>
-          {{ end }} {{ if .Params.location }}
-          <div class="flex items-center space-x-2">
-            <span class="font-semibold text-green-900">Location:</span>
-            <span>{{ .Params.location }}</span>
-          </div>
-          {{ end }} {{ if .Params.year }}
-          <div class="flex items-center space-x-2">
-            <span class="font-semibold text-green-900">Year:</span>
-            <span>{{ .Params.year }}</span>
-          </div>
-          {{ end }} {{ if .Params.project_type }}
-          <div class="flex items-center space-x-2">
-            <span class="font-semibold text-green-900">Project Type:</span>
-            <span>{{ .Params.project_type }}</span>
-          </div>
-          {{ end }} {{ if .Params.size }}
-          <div class="flex items-center space-x-2">
-            <span class="font-semibold text-green-900">Garden Size:</span>
-            <span>{{ .Params.size }}</span>
-          </div>
-          {{ end }}
+  <article>
+    <!-- Hero Section -->
+    <section class="relative mb-16 overflow-hidden rounded-sm">
+      {{ if .Params.featured_image }}
+        <div class="relative h-96 md:h-[500px]">
+          <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" class="h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-black/20"></div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <section class="mb-12">
-    <div class="prose prose-lg max-w-none sm:grid sm:grid-cols-12">
-      <div class="sm:col-span-8 sm:col-start-3 lg:col-span-6 lg:col-start-4">{{ .Content }}</div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  {{ if .Params.gallery_images }}
-  <section class="mb-12">
-    <h2 class="py-12 font-serif text-2xl text-green-900">Project Gallery</h2>
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {{ range $index, $image := .Params.gallery_images }}
-      <div class="overflow-hidden rounded-lg border border-gray-900/10 shadow-lg shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-900/15">
-        <img src="{{ $image }}" alt="Project gallery image" class="gallery-image h-64 w-full cursor-pointer object-cover" loading="lazy" data-index="{{ $index }}" onclick="openLightbox({{ $index }})" />
-      </div>
-      {{ end }}
-    </div>
-  </section>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90">
-    <div class="relative max-h-[90vh] max-w-[90vw]">
-      <img id="lightbox-image" src="" alt="Gallery image" class="max-h-full max-w-full object-contain" />
-
-      <!-- Close button -->
-      <button onclick="closeLightbox()" class="absolute -right-4 -top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white text-black hover:bg-gray-200">
-        <span class="text-xl font-bold">&times;</span>
-      </button>
-
-      <!-- Navigation arrows -->
-      <button id="prev-btn" onclick="prevImage()" class="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-black/50 px-4 py-2 text-white hover:bg-black/70">
-        <span class="text-xl">&#8249;</span>
-      </button>
-      <button id="next-btn" onclick="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 rounded-lg bg-black/50 px-4 py-2 text-white hover:bg-black/70">
-        <span class="text-xl">&#8250;</span>
-      </button>
-    </div>
-  </div>
-
-  <script>
-    const galleryImages = [{{ range .Params.gallery_images }}"{{ . }}",{{ end }}];
-    let currentImageIndex = 0;
-
-    function openLightbox(index) {
-      currentImageIndex = index;
-      document.getElementById('lightbox-image').src = galleryImages[index];
-      document.getElementById('lightbox').classList.remove('hidden');
-      document.getElementById('lightbox').classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.add('hidden');
-      document.getElementById('lightbox').classList.remove('flex');
-      document.body.style.overflow = 'auto';
-    }
-
-    function nextImage() {
-      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-      document.getElementById('lightbox-image').src = galleryImages[currentImageIndex];
-    }
-
-    function prevImage() {
-      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-      document.getElementById('lightbox-image').src = galleryImages[currentImageIndex];
-    }
-
-    // Close lightbox when clicking outside the image
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeLightbox();
-      }
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-      if (!document.getElementById('lightbox').classList.contains('hidden')) {
-        if (e.key === 'Escape') {
-          closeLightbox();
-        } else if (e.key === 'ArrowRight') {
-          nextImage();
-        } else if (e.key === 'ArrowLeft') {
-          prevImage();
-        }
-      }
-    });
-  </script>
-  {{ end }}
-
-  <!-- Project Details Section -->
-  <section class="mb-12 rounded-lg bg-green-50 py-12">
-    <div class="grid gap-8 px-8 sm:grid-cols-12">
-      <!-- Process Provided -->
-      {{ if .Params.process_provided }}
-      <div class="col-span-4">
-        <h3 class="mb-4 font-serif text-xl text-green-900">Process Provided</h3>
-        <ul class="space-y-2">
-          {{ range .Params.process_provided }}
-          <li class="flex items-center">
-            <span class="mr-3 h-2 w-2 rounded-full bg-green-900"></span>
-            {{ . }}
-          </li>
-          {{ end }}
-        </ul>
-      </div>
+      {{ else }}
+        <div class="relative h-96 md:h-[500px]">
+          <img src="/images/verbena.jpeg" alt="{{ .Title }}" class="h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-black/20"></div>
+        </div>
       {{ end }}
 
-      <!-- Key Plants -->
-      {{ if .Params.plants_featured }}
-      <div class="col-span-4">
-        <h3 class="mb-4 font-serif text-xl text-green-900">Featured Plants</h3>
-        <ul class="space-y-2">
-          {{ range .Params.plants_featured }}
-          <li class="flex items-center">
-            <span class="mr-3 h-2 w-2 rounded-full bg-green-900"></span>
-            <em>{{ . }}</em>
-          </li>
-          {{ end }}
-        </ul>
-      </div>
-      {{ end }}
 
-      <!-- Materials -->
-      {{ if .Params.materials }}
-      <div class="col-span-4">
-        <h3 class="mb-4 font-serif text-xl text-green-900">Key Materials</h3>
-        <ul class="space-y-2">
-          {{ range .Params.materials }}
-          <li class="flex items-center">
-            <span class="mr-3 h-2 w-2 rounded-full bg-green-900"></span>
-            {{ . }}
-          </li>
-          {{ end }}
-        </ul>
+      <!-- Hero Text Overlay -->
+      <div class="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/70 to-transparent p-8">
+        <h1 class="font-serif text-3xl font-bold text-white md:text-5xl lg:text-6xl">{{ .Title }}</h1>
+        {{ if .Params.location }}
+          <p class="mt-2 font-serif text-lg text-white/90 md:text-2xl">{{ .Params.location }}</p>
+        {{ end }}
       </div>
-      {{ end }}
-    </div>
-  </section>
+    </section>
 
-  <!-- Tags -->
-  {{ if .Params.tags }}
-  <section class="mb-12">
-    <div class="flex flex-wrap gap-2">
-      {{ range .Params.tags }}
-      <span class="inline-block rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-800">{{ . }}</span>
+    <!-- Main Content with Gallery -->
+    {{ $rawContent := .RawContent }}
+    <!-- prettier-ignore -->
+    {{ if in $rawContent "{{< auto-gallery >}}" }}
+      <!-- Content contains auto-gallery shortcode, split and render -->
+      {{ $parts := split $rawContent "{{< auto-gallery >}}" }}
+      {{ range $index, $part := $parts }}
+        {{ if ne $part "" }}
+          <section class="mb-12 max-w-4xl">
+            <div class="project-content leading-relaxed font-serif text-xl space-y-8">{{ $part | markdownify }}</div>
+          </section>
+        {{ end }}
+        {{ if lt $index (sub (len $parts) 1) }}
+          <!-- Insert gallery between parts -->
+          {{ partial "auto-gallery.html" $ }}
+        {{ end }}
       {{ end }}
-    </div>
-  </section>
-  {{ end }}
-</article>
+    {{ else }}
+      <!-- No gallery, render content normally -->
+      <section class="mb-12 max-w-4xl">
+        <div class="project-content font-serif text-xl">{{ .Content }}</div>
+      </section>
+    {{ end }}
+  </article>
 {{ end }}
