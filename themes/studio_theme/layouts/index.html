@@ -1,15 +1,10 @@
 {{ define "main" }}
   <!-- Full-width hero sections -->
-  <div class="mb-12 grid w-full grid-cols-1 gap-6 md:grid-cols-2">
+  <div class="mb-18 grid w-full grid-cols-1 gap-6 md:grid-cols-2">
     <!-- Blockquote Section 
     <div class="flex items-center justify-center px-8 py-12">
       <div class="rounded-sm bg-gradient-to-br from-amber-700/20 via-amber-700/10 to-stone-200/50 p-4">
-        <blockquote
-          class="m-auto mx-6 my-6 w-lg rounded-sm bg-white px-8 py-8 font-serif text-2xl leading-relaxed text-stone-700 italic shadow-sm"
-        >
-          "The garden is a bridge between us, our homes, and the world around us. It should reflect both the character
-          of what's within, and without."
-        </blockquote>
+        
       </div>
     </div> 
   -->
@@ -27,9 +22,12 @@
 
     <!-- Image Section -->
     <div
-      class="h-96 self-start overflow-hidden rounded-sm bg-gradient-to-br from-amber-700/20 via-amber-700/10 to-stone-200/50 p-12"
+      class="h-96 self-start overflow-hidden rounded-sm bg-gradient-to-br from-amber-700/20 via-amber-700/10 to-stone-200/50 p-8"
     >
-      <img src="images/verbena.jpeg" class="h-full w-full rounded-sm object-cover" />
+      <img
+        src="images/WyldDesignConcept.jpeg"
+        class="h-full w-full rounded-sm border border-gray-900/10 object-cover shadow-lg shadow-gray-900/10"
+      />
     </div>
   </div>
 
@@ -40,4 +38,12 @@
       {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
     </div>
   </section>
+
+  <!-- Quote -->
+  <div class="my-6 mb-24 max-w-4xl rounded-sm border border-stone-300/40 bg-stone-200/50 p-6">
+    <blockquote class="font-serif text-4xl leading-relaxed text-green-900/50 italic">
+      "The garden is a bridge between us, our homes, and the world around us. It should reflect both the character of
+      what's within, and without."
+    </blockquote>
+  </div>
 {{ end }}

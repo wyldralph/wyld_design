@@ -1,7 +1,7 @@
 <!-- Clean header layout -->
-<div class="mb-12 py-6">
+<div class="py-6">
   <!-- Mobile menu button -->
-  <button id="mobile-menu-button" class="absolute right-6 top-6 p-2 focus:outline-none md:hidden">
+  <button id="mobile-menu-button" class="absolute top-6 right-6 p-2 focus:outline-none md:hidden">
     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
@@ -21,7 +21,11 @@
       <div class="hidden md:flex md:flex-1 md:justify-end">
         <nav class="flex items-center gap-4 md:gap-6 lg:gap-8">
           {{ partial "menu.html" (dict "menuID" "main" "page" . "ulClass" "flex items-center gap-4 md:gap-6 lg:gap-8 font-serif text-sm md:text-base lg:text-xl text-green-900") }}
-          <a href="/contact" class="border-1 decoration-3 underline-offset-3 rounded-lg border-green-900 px-3 py-2 font-serif text-sm text-green-900 underline decoration-green-900/50 transition-all duration-300 after:content-['_→'] hover:decoration-green-900 focus:decoration-green-900/50 motion-reduce:transition-none lg:text-lg">Available for Autumn projects</a>
+          <a
+            href="/contact"
+            class="rounded-lg border-1 border-green-900 px-3 py-2 font-serif text-sm text-green-900 underline decoration-green-900/50 decoration-3 underline-offset-3 transition-all duration-300 after:content-['_→'] hover:decoration-green-900 focus:decoration-green-900/50 motion-reduce:transition-none lg:text-lg"
+            >Available for Autumn projects</a
+          >
         </nav>
       </div>
     </div>
@@ -31,7 +35,7 @@
 <!-- Mobile menu -->
 <div id="mobile-menu" class="bg-studiopink-100 fixed inset-0 z-50 hidden md:hidden">
   <!-- Close button -->
-  <button id="mobile-menu-close" class="absolute right-4 top-4 p-2 focus:outline-none">
+  <button id="mobile-menu-close" class="absolute top-4 right-4 p-2 focus:outline-none">
     <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
     </svg>
@@ -39,7 +43,11 @@
 
   <div class="flex h-full flex-col items-center justify-center">
     {{ partial "menu.html" (dict "menuID" "main" "page" . "ulClass" "flex flex-col font-serif text-2xl space-y-8 text-center") }}
-    <a href="/contact" class="mt-8 rounded-lg border-2 border-green-900 px-4 py-2 text-center font-serif text-xl after:content-['_↗']">Available for Autumn projects</a>
+    <a
+      href="/contact"
+      class="mt-8 rounded-lg border-2 border-green-900 px-4 py-2 text-center font-serif text-xl after:content-['_↗']"
+      >Available for Autumn projects</a
+    >
   </div>
 </div>
 
