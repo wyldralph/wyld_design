@@ -1,0 +1,12 @@
+{{ $availableDate := .Site.Params.nextAvailableDate | time }}
+{{ $day := $availableDate.Day }}
+{{ $month := $availableDate.Month.String }}
+{{ $period := "" }}
+{{ if le $day 10 }}
+  {{ $period = "early" }}
+{{ else if le $day 20 }}
+  {{ $period = "mid" }}
+{{ else }}
+  {{ $period = "late" }}
+{{ end }}
+{{ printf "%s-%s" $period $month }}

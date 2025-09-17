@@ -1,4 +1,4 @@
-{{ $nextMonth := now.AddDate 0 1 0 | time.Format "January" }}
+{{ $nextMonth := partial "next-available-date.html" . }}
 
 
 <section class="mb-12">

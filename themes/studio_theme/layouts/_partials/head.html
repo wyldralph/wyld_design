@@ -8,3 +8,6 @@
 <link rel="preload" href="/fonts/Vollkorn-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 {{ with (templates.Defer (dict "key" "global")) }} {{ partial "head/css.html" . }} {{ end }} {{ partialCached
 "head/js.html" . }}
+
+<!-- Plausible Analytics -->
+{{ partial "plausible_head.html" . }}

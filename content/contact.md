@@ -7,7 +7,7 @@ layout: contact
 
 I'm currently available for new projects starting from **{{< next-month >}}**.
 
-If you're ready to discuss your project, please {{< link href="mailto:hello@wylddesign.studio" text="send me an email" />}} or {{< link href="https://tidycal.com/wylddesign/discovery" target="_blank" text="book a short phone or video call" />}}.
+If you're ready to discuss your project, please [send me an email](mailto:hello@wylddesign.studio) or [book a short call](https://tidycal.com/wylddesign/discovery).
 
 I'd like to know about bit about you, your current garden, and what you're hoping to achieve. The _'perfect'_ enquiry might look something like this:
 

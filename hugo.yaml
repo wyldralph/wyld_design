@@ -3,6 +3,16 @@ languageCode: en-us
 title: Wyld Design
 theme: "studio_theme"
 
+params:
+  nextAvailableDate: "2025-10-20"
+  plausible:
+    enable: true
+    domain: "wylddesign.studio"  # Replace with your actual domain
+
+module:
+  imports:
+    - path: github.com/divinerites/plausible-hugo
+
 build:
   writeStats: true
   buildStats:

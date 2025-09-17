@@ -23,9 +23,15 @@
           {{ partial "menu.html" (dict "menuID" "main" "page" . "ulClass" "flex items-center gap-4 md:gap-6 lg:gap-8 font-serif text-sm md:text-base lg:text-xl text-green-900") }}
           <a
             href="/contact"
-            class="rounded-lg border-1 border-green-900 px-3 py-2 font-serif text-sm text-green-900 underline decoration-green-900/50 decoration-3 underline-offset-3 transition-all duration-300 after:content-['_→'] hover:decoration-green-900 focus:decoration-green-900/50 motion-reduce:transition-none lg:text-lg"
-            >Available for Autumn projects</a
-          >
+            class="group rounded-lg border-1 border-green-900 px-3 py-2 font-serif text-sm text-green-900 transition-all duration-300 motion-reduce:transition-none lg:text-lg"
+            ><span
+              class="underline decoration-green-900/50 decoration-3 underline-offset-3 transition-all duration-300 group-hover:decoration-green-900 group-focus:decoration-green-900"
+              >New projects from {{ partial "next-available-date.html" . }}</span
+            ><span
+              class="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-rotate-10"
+              >→</span
+            >
+          </a>
         </nav>
       </div>
     </div>

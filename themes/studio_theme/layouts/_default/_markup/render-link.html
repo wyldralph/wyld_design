@@ -1,2 +1,11 @@
 {{/* Render hook for links using base classes from link shortcode */}}
-<a href="{{ .Destination | safeURL }}" {{ with .Title }}title="{{ . }}"{{ end }} class="decoration-3 underline-offset-3 underline decoration-orange-500/50 transition-all duration-300 hover:decoration-orange-500 focus:decoration-orange-500 motion-reduce:transition-none">{{ .Text | safeHTML }}</a>
+<a
+  href="{{ .Destination | safeURL }}"
+  {{ with .Title }}
+    title="{{ . }}"
+  {{ end }}{{ if or (strings.HasPrefix .Destination "http") (strings.HasPrefix .Destination "https") }}
+    target="_blank"
+  {{ end }}
+  class="underline decoration-orange-500/50 decoration-3 underline-offset-3 transition-all duration-300 hover:decoration-orange-500 focus:decoration-orange-500 motion-reduce:transition-none"
+  >{{ .Text | safeHTML }}</a
+>

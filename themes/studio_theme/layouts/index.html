@@ -10,14 +10,38 @@
   -->
 
     <!-- Text Section -->
-    <div class="flex flex-col gap-6">
-      <h1 class="font-serif text-4xl text-green-900 capitalize md:text-7xl/20">
+    <div class="flex flex-col gap-4">
+      <h1 class="font-serif text-4xl text-green-900 capitalize md:text-5xl/15 lg:text-7xl/20">
         Designing gardens that <span class="text-amber-600">belong</span>
       </h1>
-      <p class="py-8 font-serif text-2xl leading-relaxed text-stone-800">
+      <p class="py-8 font-serif text-lg leading-relaxed text-stone-800 md:text-xl lg:text-2xl">
         Ralph Wyld is a qualified garden designer with a diploma from the Royal Horticultural Society, creating bespoke
         gardens that connect to the stories of their owners and the surorunding landscape.
       </p>
+      <div class="flex flex-col lg:flex-row lg:gap-12">
+        <a
+          href="/about"
+          class="group mb-4 inline-block font-serif text-lg text-amber-600 transition-all duration-300 motion-reduce:transition-none md:text-xl lg:text-2xl"
+          ><span
+            class="underline decoration-amber-600/50 decoration-3 underline-offset-3 transition-all duration-300 group-hover:decoration-amber-600 group-focus:decoration-amber-600"
+            >Learn more about me</span
+          ><span
+            class="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-rotate-10"
+            >→</span
+          ></a
+        >
+        <a
+          href="/contact"
+          class="group mb-4 inline-block font-serif text-lg text-amber-600 transition-all duration-300 motion-reduce:transition-none md:text-xl lg:text-2xl"
+          ><span
+            class="underline decoration-amber-600/50 decoration-3 underline-offset-3 transition-all duration-300 group-hover:decoration-amber-600 group-focus:decoration-amber-600"
+            >Book a meeting</span
+          ><span
+            class="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-rotate-10"
+            >→</span
+          ></a
+        >
+      </div>
     </div>
 
     <!-- Image Section -->
@@ -31,14 +55,6 @@
     </div>
   </div>
 
-  <!-- Main content -->
-  <section class="mb-24 max-w-4xl">
-    <div class="space-y-24 font-serif text-2xl leading-10 text-stone-800">
-      {{ .Content }}
-      {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-    </div>
-  </section>
-
   <!-- Quote -->
   <div class="my-6 mb-24 max-w-4xl rounded-sm border border-stone-300/40 bg-stone-200/50 p-6">
     <blockquote class="font-serif text-4xl leading-relaxed text-green-900/50 italic">
@@ -46,4 +62,12 @@
       what's within, and without."
     </blockquote>
   </div>
+
+  <!-- Main content -->
+  <section class="mb-24 max-w-4xl">
+    <div class="space-y-24 font-serif text-2xl leading-10 text-stone-800">
+      {{ .Content }}
+      {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    </div>
+  </section>
 {{ end }}

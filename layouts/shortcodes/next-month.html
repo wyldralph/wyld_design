@@ -1,1 +1,1 @@
-{{ $t := time.Now }} {{ $currentMonth := $t.Month.String }} {{ $nextMonth := ($t.AddDate 0 1 0).Month.String }} {{ $nextMonth }}
+{{ partial "next-available-date.html" . }}
