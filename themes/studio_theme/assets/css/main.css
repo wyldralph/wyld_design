@@ -128,12 +128,14 @@
 }
 
 .project-content h2,
-.journal-content h2 {
+.journal-content h2,
+.newsletter-thanks h2 {
   @apply mt-16 mb-5 font-serif text-2xl leading-tight font-bold text-green-900 first:mt-0 sm:text-3xl lg:text-4xl;
 }
 
 .project-content h3,
-.journal-content h3 {
+.journal-content h3,
+.newsletter-thanks h2 {
   @apply mt-10 mb-4 font-serif text-xl leading-tight font-semibold text-green-900 first:mt-0 sm:text-2xl lg:text-3xl;
 }
 

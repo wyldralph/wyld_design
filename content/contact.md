@@ -2,6 +2,8 @@
 date: "2025-08-20T22:53:08+01:00"
 draft: false
 title: "Contact"
+description: "Ready to transform your garden? Contact Ralph Wyld for contemporary garden design in Bedfordshire."
+author: "Ralph Wyld"
 layout: contact
 ---
 

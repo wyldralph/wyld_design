@@ -1,0 +1,17 @@
+{{ range first 3 (where site.RegularPages "Type" "journal") }}
+  <article>
+    <a href="{{ .Permalink }}" class="group block">
+      <time
+        class="text-grey-600 mb-3 block font-serif text-base underline decoration-green-900/50 underline-offset-3 transition-all duration-300 group-hover:decoration-green-900 group-focus:decoration-green-900 motion-reduce:transition-none"
+        datetime="{{ .Date.Format "2006-01-02" }}"
+        >{{ .Date.Format "January 2, 2006" }}</time
+      >
+      <h3
+        class="mb-6 font-serif text-green-900 underline decoration-green-900/50 underline-offset-3 transition-all duration-300 group-hover:decoration-green-900 group-focus:decoration-green-900 motion-reduce:transition-none"
+      >
+        {{ .Title }}
+      </h3>
+      <p class="font-serif text-gray-600">{{ .Summary }}</p>
+    </a>
+  </article>
+{{ end }}

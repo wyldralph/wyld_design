@@ -1,5 +1,8 @@
 ---
 title: "Projects"
+description: "Garden design projects by Ralph Wyld. Each tells a unique story through research, observation and naturalistic planting for contemporary homes."
+author: "Ralph Wyld"
+image: "/images/verbena.jpeg"
 date: "2025-08-20T22:54:42+01:00"
 draft: false
 type: "projects"

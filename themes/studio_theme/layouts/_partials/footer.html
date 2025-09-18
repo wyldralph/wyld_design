@@ -16,7 +16,7 @@
       {{ partial "menu.html" (dict "menuID" "information" "page" . "ulClass" "text-base font-serif space-y-2" ) }}
     </div> -->
   </div>
-  {{ partial "newsletter-form.html" . }}
+  {{ if ne .RelPermalink "/newsletter-thanks/" }}{{ partial "newsletter-form.html" . }}{{ end }}
 </div>
 <p class="mt-24 mb-4 content-end font-serif text-2xl">
   <a

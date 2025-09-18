@@ -2,6 +2,9 @@
 date: "2025-08-20T22:56:34+01:00"
 draft: false
 title: "Process"
+description: "Discover Ralph Wyld's unique garden design process - from site research and client stories to naturalistic planting that connects home to landscape."
+author: "Ralph Wyld"
+image: "/images/verbena.jpeg"
 layout: "list"
 ---
 

@@ -2,7 +2,7 @@
 date: "2025-08-20T22:55:22+01:00"
 draft: true
 title: "Garden Design"
-summary: "Complete garden design service from concept to construction documentation."
+description: "Complete garden design service from concept to masterplan. Contemporary gardens that connect to place and story in Bedfordshire."
 ---
 
 Every garden is different, and the process is tailored to your needs. That being said, a typical garden redesign

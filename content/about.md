@@ -2,6 +2,9 @@
 date: "2025-08-19T18:03:39+01:00"
 draft: false
 title: "About Wyld Design"
+description: "Meet Ralph Wyld, jazz vibraphonist turned garden designer. Creating narrative-driven contemporary gardens in Bedfordshire with environmental focus."
+author: "Ralph Wyld"
+image: "/images/ralph.jpeg"
 layout: about
 params:
   tagline: "Transforming contemporary gardens in Bedfordshire and beyond"

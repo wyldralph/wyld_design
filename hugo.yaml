@@ -5,9 +5,16 @@ theme: "studio_theme"
 
 params:
   nextAvailableDate: "2025-10-20"
+  description: "Ralph Wyld is a qualified garden designer with a diploma from the Royal Horticultural Society, creating bespoke gardens that connect to the stories of their owners and the surorunding landscape of Bedfordshire."
+  author: "Ralph Wyld"
+  image: "/images/verbena.jpeg"
+  logo: "/images/logo_green.png"
+  tagline: "Designing gardens that belong"
   plausible:
     enable: true
     domain: wylddesign.studio
+    outbound_link: true
+    gitstar: false
 
 build:
   writeStats: true

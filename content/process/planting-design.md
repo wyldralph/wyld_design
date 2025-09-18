@@ -2,7 +2,7 @@
 date: "2025-08-20T22:55:35+01:00"
 draft: true
 title: "Planting Design"
-summary: "Expert planting schemes designed for your garden's unique conditions."
+description: "Naturalistic planting design that works with your site's conditions. Supporting wildlife and creating year-round interest."
 ---
 
 Specialized planting design service focusing on creating beautiful, sustainable plant combinations that thrive
