@@ -18,12 +18,33 @@
   </div>
   {{ if ne .RelPermalink "/newsletter-thanks/" }}{{ partial "newsletter-form.html" . }}{{ end }}
 </div>
-<p class="mt-24 mb-4 content-end font-serif text-2xl">
-  <a
-    href="mailto:hello@wylddesign.studio"
-    class="underline decoration-orange-500/50 decoration-3 underline-offset-3 transition-all duration-300 hover:decoration-orange-500 focus:decoration-orange-500 motion-reduce:transition-none"
-    >hello@wylddesign.studio</a
-  >
-</p>
-<p class="font-serif text-2xl text-stone-500">Westoning, Bedfordshire</p>
+<!-- Contact Information with Schema.org markup -->
+<div
+  itemscope
+  itemtype="https://schema.org/LocalBusiness"
+  class="flex flex-col space-y-2 md:flex-row md:items-start md:justify-between md:space-y-0"
+>
+  <div class="mt-12 space-y-2">
+    <h3 itemprop="name" class="mb-4 font-serif text-2xl text-green-900">Wyld Design</h3>
+    <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+      <p itemprop="addressLocality" class="font-serif text-xl text-stone-600">Westoning, Bedfordshire</p>
+    </div>
+    <p class="font-serif text-xl">
+      <a
+        href="tel:07424618782"
+        itemprop="telephone"
+        class="text-stone-700 underline decoration-orange-500/50 decoration-2 underline-offset-3 transition-all duration-300 hover:decoration-orange-500 focus:decoration-orange-500 motion-reduce:transition-none"
+        >07424 618782</a
+      >
+    </p>
+  </div>
+  <p class="mt-12 font-serif text-2xl md:mt-30 md:text-right">
+    <a
+      href="mailto:hello@wylddesign.studio"
+      itemprop="email"
+      class="text-stone-700 underline decoration-orange-500/50 decoration-2 underline-offset-3 transition-all duration-300 hover:decoration-orange-500 focus:decoration-orange-500 motion-reduce:transition-none"
+      >hello@wylddesign.studio</a
+    >
+  </p>
+</div>
 <p class="mt-8 text-right font-serif text-sm text-stone-400">© {{ now.Year }} Wyld Design</p>
